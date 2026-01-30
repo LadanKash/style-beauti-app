@@ -23,14 +23,46 @@
 //   );
 // }
 
+// import { Stack } from "expo-router";
+// import { SafeAreaProvider } from "react-native-safe-area-context";
+
+// export default function RootLayout() {
+//   return (
+//     <SafeAreaProvider>
+//       <Stack screenOptions={{ headerShown: false }} />
+//     </SafeAreaProvider>
+//   );
+// }
+
+
+// app/_layout.tsx
+// app/_layout.tsx
+import { Ionicons } from "@expo/vector-icons";
+import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
-import { SafeAreaProvider } from "react-native-safe-area-context";
+import * as SplashScreen from "expo-splash-screen";
+import { useEffect } from "react";
+
+// Keep splash visible while fonts load
+SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
+  const [loaded] = useFonts({
+    ...Ionicons.font,
+  });
+
+  useEffect(() => {
+    if (loaded) SplashScreen.hideAsync();
+  }, [loaded]);
+
+  if (!loaded) return null;
+
   return (
-    <SafeAreaProvider>
-      <Stack screenOptions={{ headerShown: false }} />
-    </SafeAreaProvider>
+    <Stack screenOptions={{ headerShown: false }}>
+      {/* your routes */}
+      <Stack.Screen name="(tabs)" />
+      <Stack.Screen name="onboarding" />
+    </Stack>
   );
 }
 

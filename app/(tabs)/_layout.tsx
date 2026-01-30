@@ -1,74 +1,147 @@
 
-// import { theme } from "@/src/constants/theme";
-// import { Stack } from "expo-router";
-// import { SafeAreaProvider } from "react-native-safe-area-context";
-
-// export default function RootLayout() {
-//   return (
-//     <SafeAreaProvider>
-//       <Stack
-//         screenOptions={{
-//           headerStyle: { backgroundColor: theme.background },
-//           headerTitleStyle: { fontWeight: "700" },
-//           headerTintColor: theme.text,
-//         }}
-//       >
-//         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-//         <Stack.Screen name="lists/[listId]" options={{ title: "Idea List" }} />
-//         <Stack.Screen name="posts/[postId]" options={{ title: "Shop this photo" }} />
-//       </Stack>
-//     </SafeAreaProvider>
-//   );
-// }
-
-
-
-// import { Stack } from "expo-router";
-// import React from "react";
-// import { SafeAreaProvider } from "react-native-safe-area-context";
-
-// export default function RootLayout() {
-//   return (
-//     <SafeAreaProvider>
-//       <Stack screenOptions={{ headerShown: false }} />
-//     </SafeAreaProvider>
-//   );
-// }
-
-//2 with footer list
-// // app/(tabs)/_layout.tsx
+// import { Ionicons } from "@expo/vector-icons";
 // import { Tabs } from "expo-router";
 
 // export default function TabsLayout() {
 //   return (
-//     <Tabs screenOptions={{ headerShown: false }}>
+//     <Tabs
+//       screenOptions={{
+//         headerShown: false,
+//         tabBarActiveTintColor: "#2B2B2B",
+//       }}
+//     >
 //       <Tabs.Screen
 //         name="index"
-//         options={{ title: "Home" }}
+//         options={{
+//           title: "Home",
+//           tabBarIcon: ({ color, size }) => (
+//             <Ionicons name="home-outline" size={size} color={color} />
+//           ),
+//         }}
 //       />
+
 //       <Tabs.Screen
 //         name="explore"
-//         options={{ title: "Explore" }}
+//         options={{
+//           title: "Explore",
+//           tabBarIcon: ({ color, size }) => (
+//             <Ionicons name="search-outline" size={size} color={color} />
+//           ),
+//         }}
 //       />
+
 //       <Tabs.Screen
-//         name="routine"
-//         options={{ title: "Routine" }}
+//         name="lists"
+//         options={{
+//           title: "Lists",
+//           tabBarIcon: ({ color, size }) => (
+//             <Ionicons name="list-outline" size={size} color={color} />
+//           ),
+//         }}
 //       />
 //     </Tabs>
-
 //   );
 // }
 
+//2
+// import { Ionicons } from "@expo/vector-icons";
+// import Fontisto from '@expo/vector-icons/Fontisto';
+// import { Tabs } from "expo-router";
+// <Fontisto name="home" size={24} color="black" />
 
+
+// export default function TabsLayout() {
+//   return (
+//     <Tabs
+//       screenOptions={{
+//         headerShown: false,
+
+//         // ✅ set BOTH active + inactive so color is always defined/visible
+//         tabBarActiveTintColor: "#2B2B2B",
+//         tabBarInactiveTintColor: "#8E8E93",
+
+//         // ✅ force a clear background so icons don’t blend in
+//         tabBarStyle: { backgroundColor: "#FFFFFF" },
+//       }}
+//     >
+//       <Tabs.Screen
+//         name="index"
+//         options={{
+//           title: "Home",
+//           tabBarIcon: ({ color, size }) => (
+//             <Ionicons name="home-outline" size={size} color={color} />
+//           ),
+//         }}
+//       />
+
+//       <Tabs.Screen
+//         name="explore"
+//         options={{
+//           title: "Explore",
+//           tabBarIcon: ({ color, size }) => (
+//             <Ionicons name="search-outline" size={size} color={color} />
+//           ),
+//         }}
+//       />
+
+//       <Tabs.Screen
+//         name="lists"
+//         options={{
+//           title: "Lists",
+//           tabBarIcon: ({ color, size }) => (
+//             <Ionicons name="list" size={size} color={color} />
+//           ),
+//         }}
+//       />
+//     </Tabs>
+//   );
+// }
+// app/(tabs)/_layout.tsx
+import { Ionicons } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
 
 export default function TabsLayout() {
   return (
-    <Tabs screenOptions={{ headerShown: false }}>
-      <Tabs.Screen name="index" options={{ title: "Home" }} />
-      <Tabs.Screen name="explore" options={{ title: "Explore" }} />
-      <Tabs.Screen name="routine" options={{ title: "Routine" }} />
+    <Tabs
+      screenOptions={{
+        headerShown: false,
+        tabBarActiveTintColor: "#2B2B2B",
+        tabBarInactiveTintColor: "#8E8E93",
+        tabBarStyle: {
+          backgroundColor: "#FFFFFF",
+          borderTopColor: "rgba(0,0,0,0.08)",
+        },
+      }}
+    >
+      <Tabs.Screen
+        name="index"
+        options={{
+          title: "Home",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="home-outline" size={size} color={color} />
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="explore"
+        options={{
+          title: "Explore",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="search-outline" size={size} color={color} />
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="lists"
+        options={{
+          title: "Lists",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="list-outline" size={size} color={color} />
+          ),
+        }}
+      />
     </Tabs>
   );
 }
- 
