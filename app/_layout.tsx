@@ -62,6 +62,7 @@ export default function RootLayout() {
       {/* your routes */}
       <Stack.Screen name="(tabs)" />
       <Stack.Screen name="onboarding" />
+      <Stack.Screen name="products" options={{ headerShown: false }} />
     </Stack>
   );
 }
