@@ -97,21 +97,6 @@ export default function ExploreScreen() {
         onMenuPress={() => setMenuOpen(true)}
       />
 
-      {/* <MenuSheet
-        visible={menuOpen}
-        onClose={() => setMenuOpen(false)}
-        side="right"
-        width={280}
-        items={[
-          { label: "Home", onPress: () => router.push("/(tabs)") },
-          { label: "Explore", onPress: () => router.push("/(tabs)/explore") },
-          { label: "Products", onPress: () => router.push("/products") },
-          { label: "Find my routine", onPress: () => router.push("/routine") },
-          { label: "Disclosure", onPress: () => router.push("/disclosure") },
-          { label: "Privacy", onPress: () => router.push("/privacy") },
-        ]}
-      /> */}
-
       <MenuSheet
   visible={menuOpen}
   onClose={() => setMenuOpen(false)}
