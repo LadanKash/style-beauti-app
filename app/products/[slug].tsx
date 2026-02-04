@@ -3,6 +3,7 @@ import * as Linking from "expo-linking";
 import { useLocalSearchParams } from "expo-router";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import {
+  ActivityIndicator,
   FlatList,
   Image,
   NativeScrollEvent,
@@ -14,25 +15,84 @@ import {
   useWindowDimensions,
 } from "react-native";
 
-import { products } from "@/src/data/products";
+import type { Product } from "@/src/data/products";
+import { fetchProducts } from "@/src/data/products.api";
 import Page from "../components/Page";
 
-const PLACEHOLDER = require("../../assets/placeholders/post-winter.jpg");
+const PLACEHOLDER_URL = "https://stylebeauti.com/placeholders/post-winter.jpg"; // optional: host this image in Next/public
 
 export default function ProductPage() {
-  const { slug } = useLocalSearchParams<{ slug: string }>();
+  // const { slug } = useLocalSearchParams<{ slug: string }>();
+  const params = useLocalSearchParams<{ slug?: string | string[] }>();
+const slug = Array.isArray(params.slug) ? params.slug[0] : params.slug;
+
+
 
   const { width } = useWindowDimensions();
   const isTablet = width >= 768;
   const imgH = isTablet ? 520 : 420;
 
-  const product = products.find((p) => p.slug === slug);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  const images = useMemo(() => {
-    const arr = product?.images ?? [];
-    const safe = arr.length ? arr : [PLACEHOLDER];
-    return safe.slice(0, 2); // only 2 images
-  }, [product]);
+  useEffect(() => {
+    fetchProducts()
+      .then(setProducts)
+      .catch(() => setError("Failed to load products"))
+      .finally(() => setLoading(false));
+  }, []);
+
+  // const product = useMemo(
+  //   () => products.find((p) => p.slug === slug),
+  //   [products, slug]
+  // );
+const product = useMemo(
+  () => (slug ? products.find((p) => p.slug === slug) : undefined),
+  [products, slug]
+);
+
+
+
+  // const images = useMemo(() => {
+  //   const arr = product?.images ?? [];
+  //   // const safe = arr.length ? arr : [PLACEHOLDER_URL];
+  //   const safe = arr.length ? arr : [];
+
+  //   return safe.slice(0, 2); // only 2 images
+  // }, [product]);
+const images = useMemo(() => {
+  const arr = product?.images ?? [];
+  const safe = arr.length ? arr : [product?.imageUrl || PLACEHOLDER_URL].filter(Boolean);
+  return safe.slice(0, 2);
+}, [product]);
+
+
+
+
+  if (loading) {
+    return (
+      <Page title="Product">
+        <View style={{ padding: 20, alignItems: "center" }}>
+          <ActivityIndicator />
+          <Text style={{ marginTop: 10, opacity: 0.7 }}>Loading product...</Text>
+        </View>
+      </Page>
+    );
+  }
+
+  if (error) {
+    return (
+      <Page title="Product">
+        <View style={{ padding: 20 }}>
+          <Text style={{ color: "#2A2A2A", fontWeight: "700" }}>{error}</Text>
+          <Text style={{ marginTop: 6, opacity: 0.7 }}>
+            Make sure products.json is reachable.
+          </Text>
+        </View>
+      </Page>
+    );
+  }
 
   if (!product) {
     return (
@@ -50,10 +110,10 @@ export default function ProductPage() {
         {/* ✅ IMAGES */}
         {isTablet ? (
           <View style={{ flexDirection: "row", backgroundColor: "white" }}>
-            {images.map((img, i) => (
-              <View key={i} style={{ width: width / 2, height: imgH }}>
+            {images.map((url, i) => (
+              <View key={`${product.id}-img-${i}`} style={{ width: width / 2, height: imgH }}>
                 <Image
-                  source={img}
+                  source={{ uri: url }}
                   style={{ width: "100%", height: "100%" }}
                   resizeMode="contain"
                 />
@@ -106,7 +166,7 @@ export default function ProductPage() {
                 marginBottom: 12,
               }}
             >
-              <Text style={{ fontWeight: "700", color: "#2A2A2A" }}>
+              <Text style={{ fontWeight: "600", color: "#2A2A2A" }}>
                 {product.tag}
               </Text>
             </View>
@@ -153,7 +213,7 @@ export default function ProductPage() {
               alignItems: "center",
             }}
           >
-            <Text style={{ color: "white", fontWeight: "800", fontSize: 16 }}>
+            <Text style={{ color: "white", fontWeight: "700", fontSize: 16 }}>
               Shop now
             </Text>
           </Pressable>
@@ -169,11 +229,11 @@ function MobileAutoCarousel({
   width,
   height,
 }: {
-  images: any[];
+  images: string[];
   width: number;
   height: number;
 }) {
-  const listRef = useRef<FlatList<any>>(null);
+  const listRef = useRef<FlatList<string>>(null);
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -203,13 +263,13 @@ function MobileAutoCarousel({
         horizontal
         pagingEnabled
         showsHorizontalScrollIndicator={false}
-        keyExtractor={(_, i) => `img-${i}`}
+        keyExtractor={(url, i) => `${i}-${url}`}
         getItemLayout={(_, i) => ({ length: width, offset: width * i, index: i })}
         onMomentumScrollEnd={onMomentumEnd}
-        renderItem={({ item }) => (
+        renderItem={({ item: url }) => (
           <View style={{ width, height }}>
             <Image
-              source={item}
+              source={{ uri: url }}
               style={{ width: "100%", height: "100%" }}
               resizeMode="contain"
             />

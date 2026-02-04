@@ -13,7 +13,7 @@ export default function ProductsLayout() {
       <Stack.Screen
         name="[slug]"
         options={{
-          headerShown: false, // ✅ hide native header on detail
+          headerShown: false, // hide native header on detail
         }}
       />
     </Stack>

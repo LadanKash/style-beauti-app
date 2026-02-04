@@ -53,6 +53,7 @@
 //   );
 // }
 
+//app/components/page.tsx
 import { useRouter } from "expo-router";
 import React from "react";
 import { View } from "react-native";

@@ -1,445 +1,400 @@
-import ProductCard from "@/src/components/ProductCard";
-import { products, type Product } from "@/src/data/products";
+// app/routine/index.tsx
+// app/routine/index.tsx
 import { useRouter } from "expo-router";
-import React, { useMemo, useState } from "react";
-import { FlatList, Pressable, ScrollView, Text, View, useWindowDimensions } from "react-native";
+import React, { useEffect, useMemo, useRef, useState } from "react";
+import { Pressable, ScrollView, Text, View } from "react-native";
 
-import Page from "../components/Page";
+import type { Product } from "@/src/data/products";
+import { fetchProducts } from "@/src/data/products.api";
 
-type QuizCategory = Product["category"];
-type QuizBudget = "any" | Product["budget"];
-
-type QuizState = {
-  category?: QuizCategory;
-  concern?: string;
-  budget?: QuizBudget;
-};
+import MenuSheet from "../components/MenuSheet";
+import TopNav from "../components/TopNav";
 
 function Chip({
-  active,
-  disabled,
   label,
+  active,
   onPress,
 }: {
-  active: boolean;
-  disabled?: boolean;
   label: string;
+  active: boolean;
   onPress: () => void;
 }) {
   return (
     <Pressable
       onPress={onPress}
-      disabled={disabled}
       style={{
         paddingVertical: 10,
         paddingHorizontal: 14,
         borderRadius: 999,
+        backgroundColor: active ? "#E6A4B4" : "#FFFFFF",
         borderWidth: 1,
-        borderColor: active ? "rgba(230,164,180,0.95)" : "rgba(0,0,0,0.12)",
-        backgroundColor: active ? "rgba(230,164,180,0.35)" : "white",
-        opacity: disabled ? 0.35 : 1,
+        borderColor: active ? "#E6A4B4" : "rgba(43,42,42,0.12)",
       }}
     >
-      <Text style={{ fontWeight: "500", color: "#2A2A2A", textTransform: "capitalize" }}>
+      <Text
+        style={{
+          fontSize: 13,
+          fontWeight: "800",
+          color: active ? "#FFFFFF" : "rgba(43,42,42,0.80)",
+        }}
+      >
         {label}
       </Text>
     </Pressable>
   );
 }
 
-export default function RoutineQuiz() {
+export default function RoutineIndex() {
   const router = useRouter();
-  const { width } = useWindowDimensions();
-  const isWide = width >= 900;
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  const [step, setStep] = useState(1);
-  const [quiz, setQuiz] = useState<QuizState>({ budget: "any" });
+  const scrollRef = useRef<ScrollView>(null);
+  const [resultsY, setResultsY] = useState(0);
 
-  const isAny = !quiz.budget || quiz.budget === "any";
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [err, setErr] = useState("");
 
-  const concernsForCategory = useMemo(() => {
-    if (!quiz.category) return [];
+  const [category, setCategory] = useState<string | null>(null);
+  const [concern, setConcern] = useState<string | null>(null);
+  const [budget, setBudget] = useState<string | null>(null);
+
+  useEffect(() => {
+    let alive = true;
+    setLoading(true);
+    setErr("");
+
+    fetchProducts()
+      .then((list) => {
+        if (!alive) return;
+        setProducts(list);
+      })
+      .catch((e: any) => {
+        if (!alive) return;
+        setErr(e?.message || "Failed to load products");
+      })
+      .finally(() => {
+        if (!alive) return;
+        setLoading(false);
+      });
+
+    return () => {
+      alive = false;
+    };
+  }, []);
+
+  const step = useMemo(() => {
+    if (!category) return 1;
+    if (!concern) return 2;
+    if (!budget) return 3;
+    return 4; // finished
+  }, [category, concern, budget]);
+
+  const allConcernsForCategory = useMemo(() => {
+    if (!category) return [];
     const set = new Set<string>();
-
     products
-      .filter((p) => p.category === quiz.category)
-      .forEach((p) => (p.concerns ?? []).forEach((c) => set.add(c)));
+      .filter((p) => p.category === category)
+      .forEach((p) => (p.concerns || []).forEach((c) => set.add(c)));
+    return Array.from(set).slice(0, 18);
+  }, [products, category]);
 
-    return Array.from(set).sort((a, b) => a.localeCompare(b));
-  }, [quiz.category]);
-
-  const availableBudgets = useMemo(() => {
-    const set = new Set<Product["budget"]>();
-    if (!quiz.category || !quiz.concern) return set;
-
-    products
-      .filter((p) => p.category === quiz.category && p.concerns.includes(quiz.concern!))
-      .forEach((p) => set.add(p.budget));
-
-    return set;
-  }, [quiz.category, quiz.concern]);
-
-  const matches = useMemo(() => {
-    if (!quiz.category || !quiz.concern) return [];
-    return products.filter((p) => {
-      const okCategory = p.category === quiz.category;
-      const okConcern = p.concerns.includes(quiz.concern!);
-      const okBudget = isAny ? true : p.budget === quiz.budget;
-      return okCategory && okConcern && okBudget;
-    });
-  }, [quiz.category, quiz.concern, quiz.budget, isAny]);
+  const results = useMemo(() => {
+    if (!category || !concern || !budget) return [];
+    return products
+      .filter((p) => p.category === category)
+      .filter((p) => (p.concerns || []).includes(concern))
+      .filter((p) => p.budget === budget)
+      .slice(0, 12);
+  }, [products, category, concern, budget]);
 
   const reset = () => {
-    setQuiz({ budget: "any" });
-    setStep(1);
+    setCategory(null);
+    setConcern(null);
+    setBudget(null);
   };
 
-  const QuizCard = (
-    <View
-      style={{
-        backgroundColor: "white",
-        borderWidth: 1,
-        borderColor: "rgba(0,0,0,0.10)",
-        borderRadius: 24,
-        padding: 18,
-      }}
-    >
-      <View style={{ flexDirection: "row", justifyContent: "space-between", marginBottom: 14 }}>
-        <Text style={{ opacity: 0.6, fontWeight: "500" }}>Step {step} of 3</Text>
-        <Pressable onPress={reset}>
-          <Text style={{ opacity: 0.6, fontWeight: "500" }}>Reset</Text>
-        </Pressable>
-      </View>
+  const canNextFromStep1 = !!category;
+  const canNextFromStep2 = !!concern;
+  const canNextFromStep3 = !!budget;
 
-      {step === 1 && (
-        <>
-          <Text style={{ fontSize: 20, fontWeight: "500", color: "#2A2A2A" }}>
-            What are you shopping for?
-          </Text>
-          <Text style={{ marginTop: 6, opacity: 0.65 }}>Choose a category.</Text>
+  const goContinue = () => {
+    // Step flow: 1 -> 2 -> 3 -> scroll to results
+    if (step === 1 && !canNextFromStep1) return;
+    if (step === 2 && !canNextFromStep2) return;
+    if (step === 3 && !canNextFromStep3) return;
 
-          <View style={{ marginTop: 14, flexDirection: "row", flexWrap: "wrap", gap: 10 }}>
-            {(["skincare", "haircare", "clothing", "bags", "accessories"] as QuizCategory[]).map(
-              (cat) => (
-                <Chip
-                  key={cat}
-                  label={cat}
-                  active={quiz.category === cat}
-                  onPress={() =>
-                    setQuiz({
-                      category: cat,
-                      concern: undefined,
-                      budget: "any",
-                    })
-                  }
-                />
-              )
-            )}
-          </View>
+    // When budget selected (step 3), show results by scrolling
+    if (step >= 3) {
+      scrollRef.current?.scrollTo({ y: Math.max(resultsY - 16, 0), animated: true });
+    }
+  };
 
-          <Pressable
-            onPress={() => setStep(2)}
-            disabled={!quiz.category}
-            style={{
-              marginTop: 18,
-              backgroundColor: quiz.category ? "#E6A4B4" : "rgba(230,164,180,0.35)",
-              paddingVertical: 14,
-              borderRadius: 999,
-              alignItems: "center",
-            }}
-          >
-            <Text style={{ color: "white", fontWeight: "900" }}>Continue</Text>
-          </Pressable>
-        </>
-      )}
+  const goBack = () => {
+    if (step === 2) {
+      setConcern(null);
+      return;
+    }
+    if (step === 3) {
+      setBudget(null);
+      return;
+    }
+    // step 4 or later
+    setBudget(null);
+  };
 
-      {step === 2 && (
-        <>
-          <Text style={{ fontSize: 20, fontWeight: "500", color: "#2A2A2A" }}>
-            What’s your main concern?
-          </Text>
-          <Text style={{ marginTop: 6, opacity: 0.65 }}>Pick one.</Text>
-
-          <View style={{ marginTop: 14, flexDirection: "row", flexWrap: "wrap", gap: 10 }}>
-            {concernsForCategory.map((c) => (
-              <Chip
-                key={c}
-                label={c.replaceAll("-", " ")}
-                active={quiz.concern === c}
-                onPress={() =>
-                  setQuiz((q) => ({
-                    ...q,
-                    concern: c,
-                    budget: "any",
-                  }))
-                }
-              />
-            ))}
-          </View>
-
-          <View style={{ marginTop: 18, flexDirection: "row", gap: 12 }}>
-            <Pressable
-              onPress={() => setStep(1)}
-              style={{
-                flex: 1,
-                paddingVertical: 14,
-                borderRadius: 999,
-                borderWidth: 1,
-                borderColor: "rgba(0,0,0,0.12)",
-                backgroundColor: "white",
-                alignItems: "center",
-              }}
-            >
-              <Text style={{ fontWeight: "600" }}>Back</Text>
-            </Pressable>
-
-            <Pressable
-              onPress={() => setStep(3)}
-              disabled={!quiz.concern}
-              style={{
-                flex: 1,
-                paddingVertical: 14,
-                borderRadius: 999,
-                backgroundColor: quiz.concern ? "#E6A4B4" : "rgba(230,164,180,0.35)",
-                alignItems: "center",
-              }}
-            >
-              <Text style={{ color: "white", fontWeight: "900" }}>Continue</Text>
-            </Pressable>
-          </View>
-        </>
-      )}
-
-      {step === 3 && (
-        <>
-          <Text style={{ fontSize: 20, fontWeight: "500", color: "#2A2A2A" }}>
-            What’s your budget?
-          </Text>
-          <Text style={{ marginTop: 6, opacity: 0.65 }}>Choose a price range.</Text>
-
-          <View style={{ marginTop: 14, flexDirection: "row", flexWrap: "wrap", gap: 10 }}>
-            <Chip
-              label="Any"
-              active={isAny}
-              onPress={() => setQuiz((q) => ({ ...q, budget: "any" }))}
-            />
-
-            {(["$", "$$", "$$$"] as Product["budget"][]).map((b) => {
-              const disabled = !!quiz.category && !!quiz.concern && !availableBudgets.has(b);
-              return (
-                <Chip
-                  key={b}
-                  label={b}
-                  active={!isAny && quiz.budget === b}
-                  disabled={disabled}
-                  onPress={() => setQuiz((q) => ({ ...q, budget: b }))}
-                />
-              );
-            })}
-          </View>
-
-          <Text style={{ marginTop: 10, opacity: 0.65 }}>
-            Tip: choose $ / $$ / $$$ to filter, or Any to see all.
-          </Text>
-
-          <View style={{ marginTop: 18, flexDirection: "row", gap: 12 }}>
-            <Pressable
-              onPress={() => setStep(2)}
-              style={{
-                flex: 1,
-                paddingVertical: 14,
-                borderRadius: 999,
-                borderWidth: 1,
-                borderColor: "rgba(0,0,0,0.12)",
-                backgroundColor: "white",
-                alignItems: "center",
-              }}
-            >
-              <Text style={{ fontWeight: "600" }}>Back</Text>
-            </Pressable>
-
-            <Pressable
-              onPress={() => setStep(4)}
-              disabled={!quiz.category || !quiz.concern}
-              style={{
-                flex: 1,
-                paddingVertical: 14,
-                borderRadius: 999,
-                backgroundColor:
-                  quiz.category && quiz.concern ? "#E6A4B4" : "rgba(230,164,180,0.35)",
-                alignItems: "center",
-              }}
-            >
-              <Text style={{ color: "white", fontWeight: "500" }}>See results</Text>
-            </Pressable>
-          </View>
-        </>
-      )}
-    </View>
-  );
-
-  const ResultsCard = (
-    <View
-      style={{
-        backgroundColor: "white",
-        borderWidth: 1,
-        borderColor: "rgba(0,0,0,0.10)",
-        borderRadius: 24,
-        padding: 18,
-      }}
-    >
-      <View style={{ flexDirection: "row", justifyContent: "space-between", marginBottom: 10 }}>
-        <Text style={{ fontWeight: "600", color: "#2A2A2A" }}>Results</Text>
-        <View
-          style={{
-            backgroundColor: "rgba(230,164,180,0.25)",
-            paddingHorizontal: 10,
-            paddingVertical: 4,
-            borderRadius: 999,
-          }}
-        >
-          <Text style={{ fontWeight: "900", color: "#2A2A2A" }}>
-            {step === 4 ? matches.length : 0}
-          </Text>
-        </View>
-      </View>
-
-      {step !== 4 ? (
-        <Text style={{ opacity: 0.65 }}>Complete the quiz to see your matches here.</Text>
-      ) : matches.length === 0 ? (
-        <View>
-          <Text style={{ opacity: 0.65, marginBottom: 12 }}>
-            No exact matches yet. Try a different budget or concern.
-          </Text>
-
-          <View style={{ flexDirection: "row", gap: 12 }}>
-            <Pressable
-              onPress={() => setStep(2)}
-              style={{
-                flex: 1,
-                paddingVertical: 12,
-                borderRadius: 999,
-                borderWidth: 1,
-                borderColor: "rgba(0,0,0,0.12)",
-                backgroundColor: "white",
-                alignItems: "center",
-              }}
-            >
-              <Text style={{ fontWeight: "500" }}>Change concern</Text>
-            </Pressable>
-
-            <Pressable
-              onPress={() => router.push("/products")}
-              style={{
-                flex: 1,
-                paddingVertical: 12,
-                borderRadius: 999,
-                backgroundColor: "#E6A4B4",
-                alignItems: "center",
-              }}
-            >
-              <Text style={{ color: "white", fontWeight: "900" }}>Browse all</Text>
-            </Pressable>
-          </View>
-        </View>
-      ) : (
-        <View style={{ gap: 12 }}>
-          {matches.slice(0, 3).map((p) => (
-            <Pressable
-              key={p.id}
-              onPress={() => router.push(`/products/${p.slug}`)}
-              style={{
-                borderWidth: 1,
-                borderColor: "rgba(0,0,0,0.10)",
-                borderRadius: 18,
-                padding: 12,
-                backgroundColor: "white",
-              }}
-            >
-              <Text style={{ opacity: 0.65, marginBottom: 4 }}>
-                {p.brand} • {p.budget}
-              </Text>
-              <Text style={{ fontWeight: "900", color: "#2A2A2A" }}>{p.name}</Text>
-              <Text style={{ opacity: 0.65, marginTop: 6 }} numberOfLines={2}>
-                {p.description}
-              </Text>
-            </Pressable>
-          ))}
-
-          <Pressable
-            onPress={() => router.push("/products")}
-            style={{
-              marginTop: 6,
-              backgroundColor: "#2A2A2A",
-              paddingVertical: 12,
-              borderRadius: 999,
-              alignItems: "center",
-            }}
-          >
-            <Text style={{ color: "white", fontWeight: "600" }}>See all products</Text>
-          </Pressable>
-        </View>
-      )}
-
-      <Text style={{ marginTop: 14, fontSize: 12, opacity: 0.6 }}>
-        Affiliate disclosure: We may earn commission from some links.
-      </Text>
-    </View>
-  );
+  const CARD_MAX = 520;
 
   return (
-    <Page>
-      <ScrollView contentContainerStyle={{ padding: 20, gap: 14 }}>
-        {/* ✅ This header is now safely BELOW the TopNav */}
-        <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
-          <View style={{ flex: 1, paddingRight: 10 }}>
-            <Text style={{ fontSize: 26, fontWeight: "600", color: "#2A2A2A" }}>
-              Find my routine
-            </Text>
-            <Text style={{ marginTop: 6, opacity: 0.7 }}>
-              Answer 3 quick questions — we’ll recommend products that match your needs and budget.
-            </Text>
+    <View style={{ flex: 1, backgroundColor: "#F7F7F4" }}>
+      <TopNav
+        title="Style & Beauty"
+        showBack
+        onBackPress={() => router.back()}
+        onMenuPress={() => setMenuOpen(true)}
+      />
+
+      <MenuSheet
+        visible={menuOpen}
+        onClose={() => setMenuOpen(false)}
+        items={[
+          { label: "Home", onPress: () => router.push("/(tabs)") },
+          { label: "Explore", onPress: () => router.push("/(tabs)/explore") },
+          { label: "Products", onPress: () => router.push("/products") },
+          { label: "Find my routine", onPress: () => router.push("/routine") },
+          { label: "Disclosure", onPress: () => router.push("/disclosure") },
+          { label: "Privacy", onPress: () => router.push("/privacy") },
+        ]}
+      />
+
+      <ScrollView ref={scrollRef} contentContainerStyle={{ padding: 14, paddingBottom: 80 }}>
+        <View style={{ alignSelf: "center", width: "100%", maxWidth: CARD_MAX }}>
+          {/* Header */}
+          <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "flex-start" }}>
+            <View style={{ flex: 1, paddingRight: 10 }}>
+              <Text style={{ fontSize: 28, fontWeight: "600", color: "#1F1F1F" }}>
+                Find my routine
+              </Text>
+              <Text style={{ marginTop: 6, opacity: 0.72, fontSize: 14, lineHeight: 20 }}>
+                Answer 3 quick questions — we’ll recommend products that match your needs and budget.
+              </Text>
+            </View>
+
+            <Pressable onPress={() => router.push("/(tabs)/explore")} style={{ paddingTop: 10 }}>
+              <Text style={{ fontWeight: "800", color: "#1F1F1F" }}>Browse →</Text>
+            </Pressable>
           </View>
 
-          <Pressable onPress={() => router.push("/products")}>
-            <Text style={{ fontWeight: "500", color: "#2A2A2A" }}>Browse →</Text>
-          </Pressable>
-        </View>
+          {/* Quiz Card */}
+          <View
+            style={{
+              marginTop: 16,
+              backgroundColor: "#FFFFFF",
+              borderRadius: 24,
+              padding: 16,
+              borderWidth: 1,
+              borderColor: "rgba(0,0,0,0.08)",
+            }}
+          >
+            <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
+              <Text style={{ opacity: 0.6, fontWeight: "800" }}>
+                Step {Math.min(step, 3)} of 3
+              </Text>
 
-        {isWide ? (
-          <View style={{ flexDirection: "row", gap: 14 }}>
-            <View style={{ flex: 1 }}>{QuizCard}</View>
-            <View style={{ width: 360 }}>{ResultsCard}</View>
-          </View>
-        ) : (
-          <>
-            {QuizCard}
-            {ResultsCard}
+              <Pressable onPress={reset}>
+                <Text style={{ fontWeight: "800", opacity: 0.7 }}>Reset</Text>
+              </Pressable>
+            </View>
 
-            {step === 4 && matches.length > 0 ? (
-              <View style={{ marginTop: 10 }}>
-                <Text style={{ fontWeight: "500", marginBottom: 10, color: "#2A2A2A" }}>
-                  Recommended products
+            {/* STEP 1: Category */}
+            {step === 1 && (
+              <>
+                <Text style={{ marginTop: 12, fontSize: 22, fontWeight: "500", color: "#1F1F1F" }}>
+                  What are you shopping for?
                 </Text>
+                <Text style={{ marginTop: 6, opacity: 0.7 }}>Choose a category.</Text>
 
-                <FlatList
-                  data={matches}
-                  keyExtractor={(item) => item.id}
-                  scrollEnabled={false}
-                  contentContainerStyle={{ gap: 14, paddingBottom: 20 }}
-                  renderItem={({ item }) => (
-                    <ProductCard
-                      product={item}
-                      onPress={() => router.push(`/products/${item.slug}`)}
+                <View style={{ marginTop: 12, flexDirection: "row", flexWrap: "wrap", gap: 10 }}>
+                  {["skincare", "haircare", "clothing", "bags", "accessories"].map((c) => (
+                    <Chip
+                      key={c}
+                      label={c.charAt(0).toUpperCase() + c.slice(1)}
+                      active={category === c}
+                      onPress={() => {
+                        setCategory(c);
+                        setConcern(null);
+                        setBudget(null);
+                      }}
                     />
-                  )}
-                />
+                  ))}
+                </View>
+              </>
+            )}
+
+            {/* STEP 2: Concern */}
+            {step === 2 && (
+              <>
+                <Text style={{ marginTop: 12, fontSize: 22, fontWeight: "500", color: "#1F1F1F" }}>
+                  What’s your main concern?
+                </Text>
+                <Text style={{ marginTop: 6, opacity: 0.7 }}>Pick one.</Text>
+
+                <View style={{ marginTop: 12, flexDirection: "row", flexWrap: "wrap", gap: 10 }}>
+                  {allConcernsForCategory.map((c) => (
+                    <Chip
+                      key={c}
+                      label={c.replace(/-/g, " ")}
+                      active={concern === c}
+                      onPress={() => {
+                        setConcern(c);
+                        setBudget(null);
+                      }}
+                    />
+                  ))}
+                </View>
+              </>
+            )}
+
+            {/* STEP 3: Budget */}
+            {step === 3 && (
+              <>
+                <Text style={{ marginTop: 12, fontSize: 22, fontWeight: "900", color: "#1F1F1F" }}>
+                  What’s your budget?
+                </Text>
+                <Text style={{ marginTop: 6, opacity: 0.7 }}>Choose a price range.</Text>
+
+                <View style={{ marginTop: 12, flexDirection: "row", flexWrap: "wrap", gap: 10 }}>
+                  {["$", "$$", "$$$"].map((b) => (
+                    <Chip key={b} label={b} active={budget === b} onPress={() => setBudget(b)} />
+                  ))}
+                </View>
+
+                <Text style={{ marginTop: 10, opacity: 0.7 }}>
+                  Tip: choose $ / $$ / $$$ to filter.
+                </Text>
+              </>
+            )}
+
+            {/* Buttons */}
+            <View style={{ marginTop: 16, flexDirection: "row", gap: 12 }}>
+              {step > 1 && step <= 3 && (
+                <Pressable
+                  onPress={goBack}
+                  style={{
+                    flex: 1,
+                    backgroundColor: "#FFFFFF",
+                    borderRadius: 999,
+                    borderWidth: 1,
+                    borderColor: "rgba(0,0,0,0.12)",
+                    paddingVertical: 14,
+                    alignItems: "center",
+                  }}
+                >
+                  <Text style={{ fontWeight: "900", color: "#1F1F1F" }}>Back</Text>
+                </Pressable>
+              )}
+
+              <Pressable
+                onPress={goContinue}
+                disabled={(step === 1 && !canNextFromStep1) || (step === 2 && !canNextFromStep2) || (step === 3 && !canNextFromStep3)}
+                style={{
+                  flex: 1,
+                  backgroundColor:
+                    (step === 1 && canNextFromStep1) || (step === 2 && canNextFromStep2) || (step === 3 && canNextFromStep3)
+                      ? "#E6A4B4"
+                      : "rgba(230,164,180,0.35)",
+                  borderRadius: 999,
+                  paddingVertical: 14,
+                  alignItems: "center",
+                }}
+              >
+                <Text style={{ fontWeight: "900", color: "#FFFFFF", fontSize: 16 }}>
+                  {step < 3 ? "Continue" : "See results"}
+                </Text>
+              </Pressable>
+            </View>
+          </View>
+
+          {/* Results */}
+          <View
+            onLayout={(e) => setResultsY(e.nativeEvent.layout.y)}
+            style={{
+              marginTop: 14,
+              backgroundColor: "#FFFFFF",
+              borderRadius: 24,
+              padding: 16,
+              borderWidth: 1,
+              borderColor: "rgba(0,0,0,0.08)",
+            }}
+          >
+            <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
+              <Text style={{ fontSize: 18, fontWeight: "600" }}>Results</Text>
+              <View
+                style={{
+                  backgroundColor: "rgba(230,164,180,0.22)",
+                  paddingHorizontal: 12,
+                  paddingVertical: 6,
+                  borderRadius: 999,
+                }}
+              >
+                <Text style={{ fontWeight: "900" }}>{loading ? "…" : results.length}</Text>
               </View>
-            ) : null}
-          </>
-        )}
+            </View>
+
+            {err ? (
+              <Text style={{ marginTop: 10, color: "#B00020" }}>{err}</Text>
+            ) : !category || !concern || !budget ? (
+              <Text style={{ marginTop: 10, opacity: 0.7 }}>
+                Complete the quiz to see your matches here.
+              </Text>
+            ) : results.length === 0 ? (
+              <Text style={{ marginTop: 10, opacity: 0.7 }}>
+                No matches found — try another concern or budget.
+              </Text>
+            ) : (
+              <View style={{ marginTop: 12, gap: 10 }}>
+                {results.map((p) => (
+                  <Pressable
+                    key={p.id}
+                    onPress={() => router.push(`/products/${p.slug}`)}
+                    style={{
+                      borderWidth: 1,
+                      borderColor: "rgba(0,0,0,0.08)",
+                      borderRadius: 18,
+                      padding: 12,
+                      backgroundColor: "#FFFFFF",
+                    }}
+                  >
+                    <Text style={{ fontWeight: "700" }} numberOfLines={1}>
+                      {p.name}
+                    </Text>
+                    <Text style={{ opacity: 0.7, marginTop: 4 }} numberOfLines={1}>
+                      {p.brand} • {p.budget} • {p.price} {p.currency || "CAD"}
+                    </Text>
+                  </Pressable>
+                ))}
+
+                <Pressable
+                  onPress={() => router.push("/products")}
+                  style={{
+                    marginTop: 4,
+                    backgroundColor: "#1F1F1F",
+                    paddingVertical: 14,
+                    borderRadius: 999,
+                    alignItems: "center",
+                  }}
+                >
+                  <Text style={{ color: "#FFFFFF", fontWeight: "600" }}>See all products</Text>
+                </Pressable>
+              </View>
+            )}
+
+            <Text style={{ marginTop: 12, opacity: 0.55 }}>
+              Affiliate disclosure: We may earn commission from some links.
+            </Text>
+          </View>
+        </View>
       </ScrollView>
-    </Page>
+    </View>
   );
 }
-
