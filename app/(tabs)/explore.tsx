@@ -499,7 +499,7 @@ export default function ExploreScreen() {
                 </View>
 
                 <View style={{ flex: 1 }}>
-                  <Text style={{ fontWeight: "900", fontSize: 15, color: "#1F1F1F" }} numberOfLines={1}>
+                  <Text style={{ fontWeight: "600", fontSize: 15, color: "#1F1F1F" }} numberOfLines={1}>
                     {item.name}
                   </Text>
 

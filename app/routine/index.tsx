@@ -172,7 +172,7 @@ export default function RoutineIndex() {
           {/* Header */}
           <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "flex-start" }}>
             <View style={{ flex: 1, paddingRight: 10 }}>
-              <Text style={{ fontSize: 28, fontWeight: "600", color: "#1F1F1F" }}>
+              <Text style={{ fontSize: 26, fontWeight: "500", color: "#1F1F1F" }}>
                 Find my routine
               </Text>
               <Text style={{ marginTop: 6, opacity: 0.72, fontSize: 14, lineHeight: 20 }}>
@@ -202,14 +202,14 @@ export default function RoutineIndex() {
               </Text>
 
               <Pressable onPress={reset}>
-                <Text style={{ fontWeight: "800", opacity: 0.7 }}>Reset</Text>
+                <Text style={{ fontWeight: "600", opacity: 0.7 }}>Reset</Text>
               </Pressable>
             </View>
 
             {/* STEP 1: Category */}
             {step === 1 && (
               <>
-                <Text style={{ marginTop: 12, fontSize: 22, fontWeight: "500", color: "#1F1F1F" }}>
+                <Text style={{ marginTop: 12, fontSize: 20, fontWeight: "500", color: "#1F1F1F" }}>
                   What are you shopping for?
                 </Text>
                 <Text style={{ marginTop: 6, opacity: 0.7 }}>Choose a category.</Text>
@@ -234,7 +234,7 @@ export default function RoutineIndex() {
             {/* STEP 2: Concern */}
             {step === 2 && (
               <>
-                <Text style={{ marginTop: 12, fontSize: 22, fontWeight: "500", color: "#1F1F1F" }}>
+                <Text style={{ marginTop: 12, fontSize: 20, fontWeight: "500", color: "#1F1F1F" }}>
                   What’s your main concern?
                 </Text>
                 <Text style={{ marginTop: 6, opacity: 0.7 }}>Pick one.</Text>
@@ -258,7 +258,7 @@ export default function RoutineIndex() {
             {/* STEP 3: Budget */}
             {step === 3 && (
               <>
-                <Text style={{ marginTop: 12, fontSize: 22, fontWeight: "900", color: "#1F1F1F" }}>
+                <Text style={{ marginTop: 12, fontSize: 20, fontWeight: "700", color: "#1F1F1F" }}>
                   What’s your budget?
                 </Text>
                 <Text style={{ marginTop: 6, opacity: 0.7 }}>Choose a price range.</Text>

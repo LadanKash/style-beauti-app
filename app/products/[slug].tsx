@@ -85,7 +85,7 @@ const images = useMemo(() => {
     return (
       <Page title="Product">
         <View style={{ padding: 20 }}>
-          <Text style={{ color: "#2A2A2A", fontWeight: "700" }}>{error}</Text>
+          <Text style={{ color: "#2A2A2A", fontWeight: "400" }}>{error}</Text>
           <Text style={{ marginTop: 6, opacity: 0.7 }}>
             Make sure products.json is reachable.
           </Text>
@@ -132,8 +132,8 @@ const images = useMemo(() => {
 
           <Text
             style={{
-              fontSize: 24,
-              color: "#2A2A2A",
+              fontSize: 22,
+              color: "#454343",
               fontWeight: "400",
               marginTop: 6,
               marginBottom: 10,
