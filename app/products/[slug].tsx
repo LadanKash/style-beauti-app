@@ -329,9 +329,7 @@ import {
 import type { Product } from "@/src/data/products";
 import { fetchProducts } from "@/src/data/products.api";
 
-import MenuSheet from "../components/MenuSheet";
 import Page from "../components/Page";
-import TopNav from "../components/TopNav";
 
 const PLACEHOLDER_URL = "https://stylebeauti.com/placeholders/post-winter.jpg";
 
@@ -378,7 +376,7 @@ export default function ProductPage() {
 
   return (
     <Page backgroundColor="#F7F7F4">
-      <TopNav
+      {/* <TopNav
         title="Style & Beauty"
         showBack
         onBackPress={() => router.back()}
@@ -397,7 +395,7 @@ export default function ProductPage() {
           { label: "Disclosure", onPress: () => router.push("/disclosure") },
           { label: "Privacy", onPress: () => router.push("/privacy") },
         ]}
-      />
+      /> */}
 
       {loading ? (
         <View style={{ padding: 20, alignItems: "center" }}>
