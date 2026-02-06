@@ -10,7 +10,7 @@ export default function Footer() {
       style={{
         paddingBottom: Math.max(insets.bottom, 12),
         paddingTop: 10,
-        paddingHorizontal: 16,
+        paddingHorizontal: 10,
         borderTopWidth: 1,
         borderTopColor: "rgba(0,0,0,0.06)",
         backgroundColor: "white",
