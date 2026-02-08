@@ -21,7 +21,6 @@ function normalizeOne(p: any): Product {
   const imageUrl = toStr(p.imageUrl || p.image || p.thumbnail || "");
   const images = toArrStr(p.images);
 
-  // if images missing but imageUrl exists, put it as first image
   const safeImages = images.length ? images : imageUrl ? [imageUrl] : [];
 
   return {
@@ -31,6 +30,9 @@ function normalizeOne(p: any): Product {
     brand: toStr(p.brand || "Generic"),
     category: toStr(p.category || "skincare"),
     concerns: toArrStr(p.concerns),
+
+    showPriceCTA: p.showPriceCTA ?? true, // ✅ ADD THIS
+
     price: toNum(p.price),
     currency: toStr(p.currency || "CAD"),
     budget: toStr(p.budget || "$$"),
@@ -41,6 +43,31 @@ function normalizeOne(p: any): Product {
     images: safeImages,
   };
 }
+
+// function normalizeOne(p: any): Product {
+//   const imageUrl = toStr(p.imageUrl || p.image || p.thumbnail || "");
+//   const images = toArrStr(p.images);
+
+//   // if images missing but imageUrl exists, put it as first image
+//   const safeImages = images.length ? images : imageUrl ? [imageUrl] : [];
+
+//   return {
+//     id: toStr(p.id || p._id || p.slug || p.name),
+//     slug: toStr(p.slug || ""),
+//     name: toStr(p.name || ""),
+//     brand: toStr(p.brand || "Generic"),
+//     category: toStr(p.category || "skincare"),
+//     concerns: toArrStr(p.concerns),
+//     price: toNum(p.price),
+//     currency: toStr(p.currency || "CAD"),
+//     budget: toStr(p.budget || "$$"),
+//     description: toStr(p.description || ""),
+//     affiliateUrl: toStr(p.affiliateUrl || p.url || ""),
+//     tag: toStr(p.tag || ""),
+//     imageUrl,
+//     images: safeImages,
+//   };
+// }
 
 export async function fetchProducts(): Promise<Product[]> {
   const url = `https://www.stylebeauti.com/products.json?v=${Date.now()}`;

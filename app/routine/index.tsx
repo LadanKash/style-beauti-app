@@ -810,7 +810,9 @@ export default function RoutineIndex() {
                       {p.name}
                     </Text>
                     <Text style={{ opacity: 0.7, marginTop: 4 }} numberOfLines={1}>
-                      {p.brand} • {p.budget} • {p.price} {p.currency || "CAD"}
+                      {/* {p.brand} • {p.budget} • {p.price} {p.currency || "CAD"} */}
+                    {p.brand} • {p.budget} • Check price from retailer
+
                     </Text>
                   </Pressable>
                 ))}

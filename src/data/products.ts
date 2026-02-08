@@ -9,6 +9,7 @@ export type Product = {
   category: string;      // "skincare" | "haircare" | ...
   concerns: string[];    // ["hydration", "wrinkles"]
   price: number;
+  showPriceCTA?: boolean;
   currency: string;      // "CAD"
   budget: string;        // "$" | "$$" | "$$$"
   description: string;

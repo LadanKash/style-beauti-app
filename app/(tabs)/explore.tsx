@@ -329,7 +329,8 @@ export default function ExploreScreen() {
   const [budget, setBudget] = useState<Filter>("all");
   const [concern, setConcern] = useState<Filter>("all");
   const [query, setQuery] = useState("");
-
+ 
+ 
   useEffect(() => {
     let alive = true;
     setLoading(true);
@@ -353,6 +354,7 @@ export default function ExploreScreen() {
       alive = false;
     };
   }, []);
+
 
   const allConcerns = useMemo(() => {
     const set = new Set<string>();
@@ -503,9 +505,16 @@ export default function ExploreScreen() {
                     {item.name}
                   </Text>
 
-                  <Text style={{ fontSize: 12, color: "#6B6B6B", marginTop: 3 }} numberOfLines={1}>
+                  {/* <Text style={{ fontSize: 12, color: "#6B6B6B", marginTop: 3 }} numberOfLines={1}>
                     {item.brand} • {item.budget} • {item.price} {item.currency || "CAD"}
-                  </Text>
+                  </Text> */}
+
+               <Text style={{ fontSize: 12, color: "#6B6B6B", marginTop: 3 }} numberOfLines={1}>
+               {item.brand} • {item.budget} • Check price from retailer
+               </Text>
+
+
+
 
                   {!!item.tag && (
                     <View

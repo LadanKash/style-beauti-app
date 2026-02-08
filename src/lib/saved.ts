@@ -10,6 +10,8 @@ export type SavedProduct = {
   category: string;
   concerns: string[];
   price: number;
+  showPriceCTA?: boolean;
+
   currency: string;
   budget: string;
   description: string;
@@ -38,17 +40,28 @@ export async function getSaved(): Promise<SavedProduct[]> {
   return read();
 }
 
-export async function isSaved(id: string): Promise<boolean> {
-  const items = await read();
-  return items.some((x) => x.id === id);
-}
 
 export async function toggleSaved(item: SavedProduct): Promise<boolean> {
   const items = await read();
-  const exists = items.some((x) => x.id === item.id);
-  const next = exists ? items.filter((x) => x.id !== item.id) : [item, ...items];
+
+  const normalized: SavedProduct = {
+    ...item,
+    showPriceCTA: item.showPriceCTA ?? true,
+  };
+
+  const exists = items.some((x) => x.id === normalized.id);
+
+  const next = exists
+    ? items.filter((x) => x.id !== normalized.id)
+    : [normalized, ...items];
+
   await write(next);
+
   return !exists;
+}
+export async function isSaved(id: string): Promise<boolean> {
+  const items = await read();
+  return items.some((x) => x.id === id);
 }
 
 export async function removeSaved(id: string): Promise<SavedProduct[]> {
