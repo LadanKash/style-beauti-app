@@ -181,10 +181,6 @@ export default function ProductPage() {
               <Text style={{ color: "white", fontWeight: "700", fontSize: 16 }}>Shop now</Text>
             </Pressable>
 
-
-
-
-
             {Footer}
           </View>
         </ScrollView>

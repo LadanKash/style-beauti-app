@@ -125,14 +125,14 @@ import { isSaved, toggleSaved } from "@/src/lib/saved";
 import { Ionicons } from "@expo/vector-icons";
 import React, { useEffect, useMemo, useState } from "react";
 import {
-    Dimensions,
-    FlatList,
-    Image,
-    NativeScrollEvent,
-    NativeSyntheticEvent,
-    Pressable,
-    Text,
-    View,
+  Dimensions,
+  FlatList,
+  Image,
+  NativeScrollEvent,
+  NativeSyntheticEvent,
+  Pressable,
+  Text,
+  View,
 } from "react-native";
 
 type Props = {
@@ -183,6 +183,7 @@ const onToggleSaved = async () => {
     category: product.category,
     concerns: product.concerns,
     price: product.price,
+    // showPriceCTA: true 
     currency: product.currency,
     budget: product.budget,
     description: product.description,
@@ -297,12 +298,22 @@ const onToggleSaved = async () => {
           {product.name}
         </Text>
 
-        <Text style={{ opacity: 0.65, marginTop: 3 }} numberOfLines={1}>
+        {/* <Text style={{ opacity: 0.65, marginTop: 3 }} numberOfLines={1}>
           {product.brand} • {product.budget}
           {typeof product.price === "number" && product.price > 0
             ? ` • ${product.price} ${product.currency || "CAD"}`
             : ""}
-        </Text>
+        </Text> */}
+
+        <Text style={{ opacity: 0.65, marginTop: 3 }} numberOfLines={1}>
+        {product.brand} • {product.budget}
+
+       {product.showPriceCTA
+    ? " • Check price from retailer"
+    : typeof product.price === "number" && product.price > 0
+      ? ` • ${product.price} ${product.currency || "CAD"}`
+      : ""}
+     </Text>
 
         {!!product.tag && (
           <View
