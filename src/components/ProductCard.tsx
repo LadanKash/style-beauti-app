@@ -406,13 +406,6 @@ const onToggleSaved = async () => {
           {product.name}
         </Text>
 
-        {/* <Text style={{ opacity: 0.65, marginTop: 3 }} numberOfLines={1}>
-          {product.brand} • {product.budget}
-          {typeof product.price === "number" && product.price > 0
-            ? ` • ${product.price} ${product.currency || "CAD"}`
-            : ""}
-        </Text> */}
-
         <Text style={{ opacity: 0.65, marginTop: 3 }} numberOfLines={1}>
         {product.brand} • {product.budget}
 

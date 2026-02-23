@@ -40,7 +40,7 @@ export default function TopNav({
         <Pressable
           onPress={showBack ? onBackPress : undefined}
           style={{
-            width: 44, // slightly bigger touch area
+            width: 44, 
             height: 44,
             borderRadius: 22,
             alignItems: "center",

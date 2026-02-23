@@ -1,9 +1,9 @@
-
-//app/lists/[listId].tsx
+// app/lists/[listId].tsx
 import { lists, posts } from "@/src/data/lists";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import React, { useMemo } from "react";
-import { FlatList, Image, Pressable, Text, View } from "react-native";
+import { FlatList, Pressable, Text, View } from "react-native";
+import CachedImage from "../components/CachedImageBox";
 import Page from "../components/Page";
 
 export default function ListDetail() {
@@ -37,11 +37,7 @@ export default function ListDetail() {
                 borderColor: "#eee",
               }}
             >
-              <Image
-                source={item.image}
-                style={{ width: "100%", height: 180 }}
-                resizeMode="cover"
-              />
+              <CachedImage source={item.image} height={180} />
 
               <View style={{ padding: 10 }}>
                 <Text numberOfLines={2} style={{ fontWeight: "500" }}>

@@ -44,7 +44,7 @@ export default function PostDetail() {
               fontWeight: "500",
             }}
           >
-            Shop this photo
+            {/* Look this products */}
           </Text>
 
           <FlatList
