@@ -1,0 +1,87 @@
+//src/lib/saved.ts
+
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
+const KEY = "stylebeauty:saved:v1";
+
+export type SavedProduct = {
+  id: string;
+  slug: string;
+  name: string;
+  brand: string;
+  category: string;
+  concerns: string[];
+  price: number;
+  showPriceCTA?: boolean;
+
+  currency: string;
+  budget: string;
+  description: string;
+  affiliateUrl: string;
+  tag: string;
+  imageUrl: string;
+  images: string[];
+
+  note?: string; //  NEW
+};
+
+
+async function read(): Promise<SavedProduct[]> {
+  const raw = await AsyncStorage.getItem(KEY);
+  if (!raw) return [];
+  try {
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+async function write(items: SavedProduct[]) {
+  await AsyncStorage.setItem(KEY, JSON.stringify(items));
+}
+
+export async function getSaved(): Promise<SavedProduct[]> {
+  return read();
+}
+
+
+export async function toggleSaved(item: SavedProduct): Promise<boolean> {
+  const items = await read();
+
+  const normalized: SavedProduct = {
+    ...item,
+    showPriceCTA: item.showPriceCTA ?? true,
+  };
+
+  const exists = items.some((x) => x.id === normalized.id);
+
+  const next = exists
+    ? items.filter((x) => x.id !== normalized.id)
+    : [normalized, ...items];
+
+  await write(next);
+
+  return !exists;
+}
+export async function isSaved(id: string): Promise<boolean> {
+  const items = await read();
+  return items.some((x) => x.id === id);
+}
+export async function updateSavedNote(id: string, note: string): Promise<SavedProduct[]> {
+  const items = await read();
+
+  const next = items.map((p) =>
+    p.id === id ? { ...p, note } : p
+  );
+
+  await write(next);
+  return next;
+}
+
+export async function removeSaved(id: string): Promise<SavedProduct[]> {
+  const items = await read();
+  const next = items.filter((x) => x.id !== id);
+  await write(next);
+  return next;
+}

@@ -1,0 +1,1683 @@
+[
+  {
+    "id": "p1",
+    "slug": "clinique-smart-repair-face-neck-cream",
+    "name": "Clinique Smart Repair Face & Neck Cream",
+    "brand": "Clinique",
+    "category": "skincare",
+    "concerns": [
+      "wrinkles",
+      "firmness",
+      "hydration"
+    ],
+    "showPriceCTA": true,
+    "price": 106,
+    "currency": "CAD",
+    "budget": "$$$",
+    "description": "Lifted, firmer, youthful-looking skin — a silky cream that visibly smooths lines and restores firmness for face and neck.",
+    "affiliateUrl": "https://amzn.to/3Lp8pxS",
+    "imageUrl": "https://stylebeauti.com/onboarding/clinique-neck.jpeg",
+    "images": [
+      "https://stylebeauti.com/onboarding/clinique-neck.jpeg",
+      "https://stylebeauti.com/onboarding/clinique-neck-model.png"
+    ],
+    "tag": "Firmness + Hydration"
+  },
+  {
+    "id": "p2",
+    "slug": "clinique-smart-repair-face-cream",
+    "name": "Clinique Smart Repair Face",
+    "brand": "Clinique",
+    "category": "skincare",
+    "concerns": [
+      "hydration",
+      "wrinkles",
+      "firmness"
+    ],
+    "showPriceCTA": true,
+    "price": 102,
+    "currency": "CAD",
+    "budget": "$$$",
+    "description": "Lifted, firmer, youthful-looking skin — a silky cream that visibly smooths lines and restores firmness for face.",
+    "affiliateUrl": "https://amzn.to/49fJK7Y",
+    "imageUrl": "https://stylebeauti.com/onboarding/clinique-face.jpeg",
+    "images": [
+      "https://stylebeauti.com/onboarding/clinique-face.jpeg",
+      "https://stylebeauti.com/onboarding/clinique-face-model.jpeg"
+    ],
+    "tag": "Firmness + Hydration"
+  },
+  {
+    "id": "p3",
+    "slug": "clinique-all-about-eyes",
+    "name": "Clinique All About Eyes",
+    "brand": "Clinique",
+    "category": "skincare",
+    "concerns": [
+      "hydration",
+      "wrinkles",
+      "puffiness",
+      "dark-circles"
+    ],
+    "showPriceCTA": true,
+    "price": 51,
+    "currency": "CAD",
+    "budget": "$$",
+    "description": "Bright, smooth, refreshed eyes — a lightweight eye cream that hydrates and helps reduce the look of dark circles and puffiness.",
+    "affiliateUrl": "https://amzn.to/4sBEQtz",
+    "imageUrl": "https://stylebeauti.com/onboarding/clinique-eyes.jpeg",
+    "images": [
+      "https://stylebeauti.com/onboarding/clinique-eyes.jpeg",
+      "https://stylebeauti.com/onboarding/clinique-eyes-model.jpeg"
+    ],
+    "tag": "Brightening + Smooth"
+  },
+  {
+    "id": "p4",
+    "slug": "hairtamin-vegan-gummies",
+    "name": "HAIRtamin Vegan Hair Gummies",
+    "brand": "HAIRtamin",
+    "category": "haircare",
+    "concerns": [
+      "frizz",
+      "shine",
+      "breakage",
+      "thinning",
+      "scalp"
+    ],
+    "showPriceCTA": true,
+    "price": 36,
+    "currency": "CAD",
+    "budget": "$$$",
+    "description": "Nourish your hair from the inside out — delicious vegan gummies designed to support thicker, shinier, healthier-looking hair.",
+    "affiliateUrl": "https://amzn.to/4pzIj9h",
+    "imageUrl": "https://stylebeauti.com/onboarding/hairtamin.jpeg",
+    "images": [
+      "https://stylebeauti.com/onboarding/hairtamin.jpeg",
+      "https://stylebeauti.com/onboarding/hairtamin-model.jpeg"
+    ],
+    "tag": "Thicker-looking hair"
+  },
+  {
+    "id": "p5",
+    "slug": "kerastase-genesis-homme-serum",
+    "name": "Kérastase Genesis Homme Fortifying Serum",
+    "brand": "Kérastase",
+    "category": "haircare",
+    "concerns": [
+      "thinning",
+      "breakage",
+      "scalp"
+    ],
+    "showPriceCTA": true,
+    "price": 95,
+    "currency": "CAD",
+    "budget": "$$$",
+    "description": "A lightweight daily serum designed to help reduce breakage-related hair fall and support stronger-looking hair.",
+    "affiliateUrl": "https://amzn.to/3YDlczE",
+    "imageUrl": "https://stylebeauti.com/onboarding/genesis-serum.jpeg",
+    "images": [
+      "https://stylebeauti.com/onboarding/genesis-serum.jpeg",
+      "https://stylebeauti.com/onboarding/genesis-serum-model.jpg"
+    ],
+    "tag": "Thicker-looking hair"
+  },
+  {
+    "id": "p6",
+    "slug": "kerastase-elixir-ultime-hair-oil",
+    "name": "Kérastase Elixir Ultime Hair Oil",
+    "brand": "Kérastase",
+    "category": "haircare",
+    "concerns": [
+      "shine",
+      "frizz",
+      "smoothness"
+    ],
+    "showPriceCTA": true,
+    "price": 46,
+    "currency": "CAD",
+    "budget": "$$",
+    "description": "A versatile hair oil that boosts shine, smooths frizz, and adds a polished finish on all hair types.",
+    "affiliateUrl": "https://amzn.to/4qdmptv",
+    "imageUrl": "https://stylebeauti.com/onboarding/shineoil.jpeg",
+    "images": [
+      "https://stylebeauti.com/onboarding/shineoil.jpeg",
+      "https://stylebeauti.com/onboarding/shineoil-model.jpg"
+    ],
+    "tag": "Shine + Smooth"
+  },
+  {
+    "id": "p7",
+    "slug": "swarovski-attract-stud-earrings",
+    "name": "Swarovski Attract Stud Earrings",
+    "brand": "Swarovski",
+    "category": "accessories",
+    "concerns": [
+      "minimal",
+      "everyday",
+      "gift"
+    ],
+    "showPriceCTA": true,
+    "price": 63,
+    "currency": "CAD",
+    "budget": "$$",
+    "description": "Elegant crystal studs — a refined everyday piece and a beautiful gift.",
+    "affiliateUrl": "https://amzn.to/4pNyhBw",
+    "imageUrl": "https://stylebeauti.com/onboarding/earring.jpeg",
+    "images": [
+      "https://stylebeauti.com/onboarding/earring.jpeg",
+      "https://stylebeauti.com/onboarding/earring-model.jpeg"
+    ],
+    "tag": "Minimal sparkle"
+  },
+  {
+    "id": "p8",
+    "slug": "swarovski-crystal-jewelry-set",
+    "name": "Swarovski Crystal Necklace & Earrings Set",
+    "brand": "Swarovski",
+    "category": "accessories",
+    "concerns": [
+      "elegant",
+      "gift",
+      "evening"
+    ],
+    "showPriceCTA": true,
+    "price": 138.25,
+    "currency": "CAD",
+    "budget": "$$$",
+    "description": "A classic set featuring a radiant pendant necklace and matching studs for effortless sophistication.",
+    "affiliateUrl": "https://amzn.to/49Wg2Fj",
+    "imageUrl": "https://stylebeauti.com/onboarding/necklace.jpeg",
+    "images": [
+      "https://stylebeauti.com/onboarding/necklace.jpeg",
+      "https://stylebeauti.com/onboarding/necklace-model.jpeg"
+    ],
+    "tag": "Timeless sparkle"
+  },
+  {
+    "id": "p9",
+    "slug": "winter-snow-ankle-boots",
+    "name": "Winter Snow Ankle Boots",
+    "brand": "Generic",
+    "category": "shoes",
+    "concerns": [
+      "winter",
+      "warmth",
+      "everyday"
+    ],
+    "showPriceCTA": true,
+    "price": 35.99,
+    "currency": "CAD",
+    "budget": "$$",
+    "description": "Fur-lined slip-on boots designed to keep your feet warm and comfortable on cold winter days.",
+    "affiliateUrl": "https://amzn.to/4k52TNT",
+    "imageUrl": "https://stylebeauti.com/onboarding/cozyboots.jpeg",
+    "images": [
+      "https://stylebeauti.com/onboarding/cozyboots.jpeg",
+      "https://stylebeauti.com/onboarding/cozyboots-model.jpeg"
+    ],
+    "tag": "Warm + Cozy"
+  },
+  {
+    "id": "p10",
+    "slug": "jw-pei-hana-faux-suede-tote",
+    "name": "JW PEI Hana Faux Suede Tote",
+    "brand": "JW PEI",
+    "category": "bags",
+    "concerns": [
+      "modern",
+      "chic",
+      "everyday"
+    ],
+    "showPriceCTA": true,
+    "price": 186,
+    "currency": "CAD",
+    "budget": "$$$",
+    "description": "A chic, structured tote with a soft faux suede finish — perfect for daily essentials.",
+    "affiliateUrl": "https://amzn.to/3LSuLIb",
+    "imageUrl": "https://stylebeauti.com/onboarding/jwsac.jpeg",
+    "images": [
+      "https://stylebeauti.com/onboarding/jwsac.jpeg",
+      "https://stylebeauti.com/onboarding/jwsac-model.jpeg"
+    ],
+    "tag": "Modern minimal"
+  },
+  {
+    "id": "p11",
+    "slug": "calvin-klein-wool-blend-coat",
+    "name": "Calvin Klein Wool Blend Coat",
+    "brand": "Calvin Klein",
+    "category": "clothing",
+    "concerns": [
+      "winter",
+      "classic",
+      "workwear"
+    ],
+    "showPriceCTA": true,
+    "price": 212,
+    "currency": "CAD",
+    "budget": "$$$",
+    "description": "A classic tailored coat in a soft wool-blend — designed to elevate everyday looks with easy elegance.",
+    "affiliateUrl": "https://amzn.to/4sKB15l",
+    "imageUrl": "https://stylebeauti.com/onboarding/coatbrown-front.jpeg",
+    "images": [
+      "https://stylebeauti.com/onboarding/coatbrown-front.jpeg",
+      "https://stylebeauti.com/onboarding/coatbrown-back.jpeg"
+    ],
+    "tag": "Cozy-luxury"
+  },
+  {
+    "id": "p12",
+    "slug": "calvin-klein-belted-rain-jacket",
+    "name": "Calvin Klein Belted Rain Jacket",
+    "brand": "Calvin Klein",
+    "category": "clothing",
+    "concerns": [
+      "rain",
+      "classic",
+      "everyday"
+    ],
+    "showPriceCTA": true,
+    "price": 139.39,
+    "currency": "CAD",
+    "budget": "$$$",
+    "description": "A sleek belted rain jacket with a removable hood — polished style for unpredictable weather.",
+    "affiliateUrl": "https://amzn.to/49XFqui",
+    "imageUrl": "https://stylebeauti.com/onboarding/jacket-front.jpeg",
+    "images": [
+      "https://stylebeauti.com/onboarding/jacket-front.jpeg",
+      "https://stylebeauti.com/onboarding/jacket-back.jpeg"
+    ],
+    "tag": "All-weather chic"
+  },
+  {
+    "id": "p13",
+    "slug": "keen-waterproof-winter-boots",
+    "name": "KEEN Waterproof Winter Boots",
+    "brand": "KEEN",
+    "category": "shoes",
+    "concerns": [
+      "winter",
+      "outdoor",
+      "warmth"
+    ],
+    "showPriceCTA": true,
+    "price": 219.99,
+    "currency": "CAD",
+    "budget": "$$$",
+    "description": "A reliable waterproof winter boot built for warmth and traction on snowy days.",
+    "affiliateUrl": "https://amzn.to/4qWKAMG",
+    "imageUrl": "https://stylebeauti.com/onboarding/keen-brown.jpeg",
+    "images": [
+      "https://stylebeauti.com/onboarding/keen-brown.jpeg",
+      "https://stylebeauti.com/onboarding/keen-black.jpeg"
+    ],
+    "tag": "Winter performance"
+  },
+  {
+    "id": "p14",
+    "slug": "showkoo-expandable-luggage-set",
+    "name": "SHOWKOO Expandable Luggage Set",
+    "brand": "SHOWKOO",
+    "category": "accessories",
+    "concerns": [
+      "travel",
+      "organization",
+      "durable"
+    ],
+    "showPriceCTA": true,
+    "price": 219.99,
+    "currency": "CAD",
+    "budget": "$$$",
+    "description": "A durable, expandable luggage set designed for smooth rolling and easy organization with a clean modern look.",
+    "affiliateUrl": "https://amzn.to/4qq5KD4",
+    "imageUrl": "https://stylebeauti.com/onboarding/luggages.jpeg",
+    "images": [
+      "https://stylebeauti.com/onboarding/luggages.jpeg",
+      "https://stylebeauti.com/onboarding/luggages-model.jpeg"
+    ],
+    "tag": "Travel in style"
+  },
+  {
+    "id": "p15",
+    "slug": "swarovski-april-birthstone-pendant",
+    "name": "Swarovski April Birthstone Pendant Necklace",
+    "brand": "Swarovski",
+    "category": "accessories",
+    "concerns": [
+      "jewelry",
+      "gift",
+      "everyday wear"
+    ],
+    "showPriceCTA": true,
+    "price": 89,
+    "currency": "CAD",
+    "budget": "$$",
+    "description": "A refined Swarovski pendant featuring a clear square-cut crystal inspired by April’s birthstone, designed to add timeless sparkle and everyday elegance.",
+    "affiliateUrl": "https://amzn.to/3M5lEE7",
+    "imageUrl": "https://stylebeauti.com/onboarding/swarovski-april.jpeg",
+    "images": [
+      "https://stylebeauti.com/onboarding/swarovski-april.jpeg",
+      "https://stylebeauti.com/onboarding/swarovski-april-model.jpeg"
+    ],
+    "tag": "Timeless sparkle"
+  },
+  {
+    "id": "p16",
+    "slug": "michael-kors-xs-jet-set-travel-tote",
+    "name": "Michael Kors XS Carry All Jet Set Travel Tote",
+    "brand": "Michael Kors",
+    "category": "bags",
+    "concerns": [
+      "everyday use",
+      "organization",
+      "travel"
+    ],
+    "showPriceCTA": true,
+    "price": 179,
+    "currency": "CAD",
+    "budget": "$$",
+    "description": "A compact Michael Kors tote crafted for everyday elegance, featuring a structured silhouette, zip closure, and lightweight design for effortless style on the go.",
+    "affiliateUrl": "https://amzn.to/49TW0u2",
+    "imageUrl": "https://stylebeauti.com/onboarding/mk-jetset.jpeg",
+    "images": [
+      "https://stylebeauti.com/onboarding/mk-jetset.jpeg",
+      "https://stylebeauti.com/onboarding/mk-jetset-model.jpeg"
+    ],
+    "tag": "Everyday classic"
+  },
+  {
+    "id": "p17",
+    "slug": "kate-spade-madison-pochette",
+    "name": "Kate Spade Madison Collection Pochette",
+    "brand": "Kate Spade New York",
+    "category": "bags",
+    "concerns": [
+      "everyday use",
+      "organization",
+      "evening wear"
+    ],
+    "showPriceCTA": true,
+    "price": 123.95,
+    "currency": "CAD",
+    "budget": "$$",
+    "description": "A sleek Kate Spade pochette crafted in durable Saffiano leather, finished with a gold-tone chain and zip closure — perfect for day-to-night essentials.",
+    "affiliateUrl": "https://amzn.to/4bRCfWr",
+    "imageUrl": "https://stylebeauti.com/onboarding/katespade-madison.jpeg",
+    "images": [
+      "https://stylebeauti.com/onboarding/katespade-madison.jpeg",
+      "https://stylebeauti.com/onboarding/katespade-madison-model.jpeg"
+    ],
+    "tag": "Day to night"
+  },
+  {
+    "id": "p18",
+    "slug": "dream-pairs-platform-mini-boots",
+    "name": "DREAM PAIRS Platform Mini Winter Boots",
+    "brand": "DREAM PAIRS",
+    "category": "shoes",
+    "concerns": [
+      "warmth",
+      "comfort",
+      "winter wear",
+      "slip resistance"
+    ],
+    "showPriceCTA": true,
+    "price": 54.99,
+    "currency": "CAD",
+    "budget": "$",
+    "description": "Cozy platform mini boots crafted in soft suede with plush faux-fur lining, designed to keep you warm, comfortable, and stylish all winter long.",
+    "affiliateUrl": "https://amzn.to/3ZAB5ak",
+    "imageUrl": "https://stylebeauti.com/onboarding/dreampairs-mini.jpeg",
+    "images": [
+      "https://stylebeauti.com/onboarding/dreampairs-mini.jpeg",
+      "https://stylebeauti.com/onboarding/dreampairs-mini-model.jpeg"
+    ],
+    "tag": "Winter essential"
+  },
+  {
+    "id": "p19",
+    "slug": "clinique-even-better-makeup-foundation",
+    "name": "Clinique Even Better Makeup Foundation SPF 15",
+    "brand": "Clinique",
+    "category": "skincare",
+    "concerns": [
+      "uneven tone",
+      "dark spots",
+      "hydration",
+      "sun protection"
+    ],
+    "showPriceCTA": true,
+    "price": 48,
+    "currency": "CAD",
+    "budget": "$$",
+    "description": "A lightweight Clinique foundation with medium coverage and SPF 15, designed to visibly even skin tone and reduce the look of dark spots over time.",
+    "affiliateUrl": "https://amzn.to/4k3WbaU",
+    "imageUrl": "https://stylebeauti.com/onboarding/clinique-evenbetter.jpeg",
+    "images": [
+      "https://stylebeauti.com/onboarding/clinique-evenbetter.jpeg",
+      "https://stylebeauti.com/onboarding/clinique-evenbetter-model.jpeg"
+    ],
+    "tag": "Even skin tone"
+  },
+  {
+    "id": "p20",
+    "slug": "clinique-even-better-light-reflecting-primer",
+    "name": "Clinique Even Better Light Reflecting Face Primer",
+    "brand": "Clinique",
+    "category": "skincare",
+    "concerns": [
+      "radiance",
+      "hydration",
+      "primer",
+      "dull-skin"
+    ],
+    "showPriceCTA": true,
+    "price": 25.2,
+    "currency": "CAD",
+    "budget": "$",
+    "description": "Lightweight face primer with Vitamin C and Hyaluronic Acid that hydrates, smooths, and boosts radiance for a glowing complexion.",
+    "affiliateUrl": "https://amzn.to/49GSfco",
+    "imageUrl": "https://stylebeauti.com/onboarding/clinique-even-better.jpeg",
+    "images": [
+      "https://stylebeauti.com/onboarding/clinique-even-better.jpeg",
+      "https://stylebeauti.com/onboarding/clinique-even-better-model.jpeg"
+    ],
+    "tag": "Glow + Hydration"
+  },
+  {
+    "id": "p21",
+    "slug": "clinique-touch-base-for-eyes-canvas-light",
+    "name": "Clinique Touch Base for Eyes (Canvas Light)",
+    "brand": "Clinique",
+    "category": "skincare",
+    "concerns": [
+      "sensitive-eyes",
+      "primer",
+      "crease-resistance",
+      "long-wear"
+    ],
+    "showPriceCTA": true,
+    "price": 28.05,
+    "currency": "CAD",
+    "budget": "$",
+    "description": "Long-lasting cream eyeshadow + primer that helps resist creasing, fading, and smudging—safe for sensitive eyes.",
+    "affiliateUrl": "https://amzn.to/49TCzBg",
+    "imageUrl": "https://stylebeauti.com/onboarding/clinique-touch-base-open.JPEG",
+    "images": [
+      "https://stylebeauti.com/onboarding/clinique-touch-base-open.JPEG",
+      "https://stylebeauti.com/onboarding/clinique-touch-base-compact.jpeg"
+    ],
+    "tag": "Eyeshadow + Primer"
+  },
+  {
+    "id": "p22",
+    "slug": "prettygarden-wide-leg-dress-pants",
+    "name": "PRETTYGARDEN Womens Wide Leg Dress Pants",
+    "brand": "PRETTYGARDEN",
+    "category": "clothing",
+    "concerns": [
+      "comfort",
+      "workwear",
+      "everyday wear",
+      "fit"
+    ],
+    "showPriceCTA": true,
+    "price": 77.17,
+    "currency": "CAD",
+    "budget": "$",
+    "description": "Flowy high-waisted wide-leg pants designed for effortless comfort and a polished business-casual look, perfect for work or everyday wear.",
+    "affiliateUrl": "https://amzn.to/45vPJDo",
+    "imageUrl": "https://stylebeauti.com/onboarding/prettygarden-pants.jpeg",
+    "images": [
+      "https://stylebeauti.com/onboarding/prettygarden-pants.jpeg",
+      "https://stylebeauti.com/onboarding/prettygarden-pants-model.jpeg"
+    ],
+    "tag": "Business casual"
+  },
+  {
+    "id": "p23",
+    "slug": "michael-kors-elyse-high-pump",
+    "name": "Michael Kors Elyse High Pump",
+    "brand": "Michael Kors",
+    "category": "shoes",
+    "concerns": [
+      "elegance",
+      "formal wear",
+      "evening style"
+    ],
+    "showPriceCTA": true,
+    "price": 129.33,
+    "currency": "CAD",
+    "budget": "$$",
+    "description": "Elegant suede high-heel pumps designed with a sleek pointed toe and slim stiletto heel, perfect for elevating both work and evening looks.",
+    "affiliateUrl": "https://amzn.to/4pVouJy",
+    "imageUrl": "https://stylebeauti.com/onboarding/mk-elyse-pump.jpeg",
+    "images": [
+      "https://stylebeauti.com/onboarding/mk-elyse-pump.jpeg",
+      "https://stylebeauti.com/onboarding/mk-elyse-pump-model.jpeg"
+    ],
+    "tag": "Modern glamour"
+  },
+  {
+    "id": "p24",
+    "slug": "osprey-arcane-large-day-backpack",
+    "name": "Osprey Arcane Large Day Backpack",
+    "brand": "Osprey",
+    "category": "bags",
+    "concerns": [
+      "work essentials",
+      "travel",
+      "organization",
+      "comfort"
+    ],
+    "showPriceCTA": true,
+    "price": 147.59,
+    "currency": "CAD",
+    "budget": "$$",
+    "description": "A sleek, minimalist everyday backpack designed for comfort and organization, featuring a padded laptop sleeve and durable materials for daily use.",
+    "affiliateUrl": "https://amzn.to/4rb97xI",
+    "imageUrl": "https://stylebeauti.com/onboarding/osprey-arcane.jpeg",
+    "images": [
+      "https://stylebeauti.com/onboarding/osprey-arcane.jpeg",
+      "https://stylebeauti.com/onboarding/osprey-arcane-model.jpeg"
+    ],
+    "tag": "Everyday carry"
+  },
+  {
+    "id": "p25",
+    "slug": "skechers-uno-stand-on-air-womens",
+    "name": "Skechers Uno – Stand On Air Sneakers",
+    "brand": "Skechers",
+    "category": "shoes",
+    "concerns": [
+      "walking",
+      "comfort",
+      "everyday wear"
+    ],
+    "showPriceCTA": true,
+    "price": 67.99,
+    "currency": "CAD",
+    "budget": "$$",
+    "description": "A stylish everyday sneaker featuring Air-Cooled Memory Foam cushioning and a visible air midsole for lightweight comfort and modern street style.",
+    "affiliateUrl": "https://amzn.to/4abzyh4",
+    "imageUrl": "https://stylebeauti.com/onboarding/skechers-uno.jpeg",
+    "images": [
+      "https://stylebeauti.com/onboarding/skechers-uno.jpeg",
+      "https://stylebeauti.com/onboarding/skechers-uno-model.jpeg"
+    ],
+    "tag": "All-day comfort"
+  },
+  {
+    "id": "p26",
+    "slug": "heymoments-wide-leg-tie-waist-pants",
+    "name": "Heymoments Wide Leg Tie-Waist Pants",
+    "brand": "Heymoments",
+    "category": "clothing",
+    "concerns": [
+      "comfort",
+      "breathable",
+      "everyday wear"
+    ],
+    "showPriceCTA": true,
+    "price": 29.99,
+    "currency": "CAD",
+    "budget": "$",
+    "description": "Lightweight, high-waisted wide leg pants with an adjustable tie waist and side pockets. Soft, breathable fabric for all-day comfort with an effortlessly chic look.",
+    "affiliateUrl": "https://amzn.to/45ofG7W",
+    "imageUrl": "https://stylebeauti.com/onboarding/heymoments-pants.jpeg",
+    "images": [
+      "https://stylebeauti.com/onboarding/heymoments-pants.jpeg",
+      "https://stylebeauti.com/onboarding/heymoments-pants-model.jpeg"
+    ],
+    "tag": "Comfy + Chic"
+  },
+  {
+    "id": "p27",
+    "slug": "swarovski-attract-trilogy-drop-earrings",
+    "name": "Attract Trilogy Crystal Drop Earrings",
+    "brand": "Swarovski",
+    "category": "accessories",
+    "concerns": [
+      "elegant",
+      "gift-idea",
+      "formal",
+      "everyday"
+    ],
+    "showPriceCTA": true,
+    "price": 119,
+    "currency": "CAD",
+    "budget": "$$",
+    "description": "Elegant drop earrings featuring three sparkling clear crystals in a rhodium-plated setting — timeless, refined, and perfect for both everyday wear and special occasions.",
+    "affiliateUrl": "https://amzn.to/49YIvcp",
+    "imageUrl": "https://stylebeauti.com/onboarding/swarovski-earrings.jpeg",
+    "images": [
+      "https://stylebeauti.com/onboarding/swarovski-earrings.jpeg",
+      "https://stylebeauti.com/onboarding/swarovski-earrings-model.jpeg"
+    ],
+    "tag": "Timeless Sparkle"
+  },
+  {
+    "id": "p28",
+    "slug": "aisicoo-pointed-toe-stiletto-pumps",
+    "name": "Pointed Toe Stiletto High Heel Pumps",
+    "brand": "Aisicoo",
+    "category": "shoes",
+    "concerns": [
+      "party",
+      "formal",
+      "evening"
+    ],
+    "showPriceCTA": true,
+    "price": 79.37,
+    "currency": "CAD",
+    "budget": "$",
+    "description": "Elegant slip-on stiletto pumps featuring a pointed toe and chic patchwork design, ideal for parties, events, and polished outfits.",
+    "affiliateUrl": "https://amzn.to/4pYqqkH",
+    "imageUrl": "https://stylebeauti.com/onboarding/aisicoo-heels.jpg",
+    "images": [
+      "https://stylebeauti.com/onboarding/aisicoo-heels.jpg",
+      "https://stylebeauti.com/onboarding/aisicoo-heels-model.png"
+    ],
+    "tag": "Elegant heels"
+  },
+  {
+    "id": "p30",
+    "slug": "bellroy-tokyo-wonder-tote-15l",
+    "name": "Bellroy Tokyo Wonder Tote (15L)",
+    "brand": "Bellroy",
+    "category": "bags",
+    "concerns": [
+      "work essentials",
+      "laptop carry",
+      "travel",
+      "organization"
+    ],
+    "showPriceCTA": true,
+    "price": 199,
+    "currency": "CAD",
+    "budget": "$$",
+    "description": "A sleek everyday tote with smart internal organization, a padded 16-inch laptop sleeve, and a wide zip opening, crafted from durable water-resistant materials.",
+    "affiliateUrl": "https://amzn.to/3LLXCho",
+    "imageUrl": "https://stylebeauti.com/onboarding/bellroy-tokyo-laptop.jpeg",
+    "images": [
+      "https://stylebeauti.com/onboarding/bellroy-tokyo-laptop.jpeg",
+      "https://stylebeauti.com/onboarding/bellroy-tokyo-tote-model.jpeg"
+    ],
+    "tag": "Modern work tote"
+  },
+  {
+    "id": "p31",
+    "slug": "bellroy-toiletry-kit-plus",
+    "name": "Bellroy Toiletry Kit Plus",
+    "brand": "Bellroy",
+    "category": "bags",
+    "concerns": [
+      "travel",
+      "organization",
+      "toiletries",
+      "water-resistant"
+    ],
+    "showPriceCTA": true,
+    "price": 89,
+    "currency": "CAD",
+    "budget": "$$",
+    "description": "A spacious toiletry pouch with smart internal organization, a magnetic toothbrush shelf, and water-resistant materials—perfect for longer trips and larger essentials.",
+    "affiliateUrl": "https://amzn.to/4acQCTZ",
+    "imageUrl": "https://stylebeauti.com/onboarding/bellroy-toiletry-plus.jpeg",
+    "images": [
+      "https://stylebeauti.com/onboarding/bellroy-toiletry-plus.jpeg",
+      "https://stylebeauti.com/onboarding/bellroy-toiletry-plus-model.jpeg"
+    ],
+    "tag": "Travel essential"
+  },
+  {
+    "id": "p32",
+    "slug": "womens-chelsea-ankle-boots-winter-fur-lined",
+    "name": "Women's Chelsea Ankle Boots",
+    "brand": "Generic",
+    "category": "shoes",
+    "concerns": [
+      "cold-weather",
+      "slip-resistance",
+      "comfort"
+    ],
+    "showPriceCTA": true,
+    "price": 62.99,
+    "currency": "CAD",
+    "budget": "$$",
+    "description": "Waterproof winter Chelsea ankle boots with a smooth PU leather upper and warm faux fur lining. Designed for easy slip-on wear with elastic side panels and pull loops. Non-slip rubber sole provides stability and comfort for all-day wear in cold and wet conditions.",
+    "affiliateUrl": "https://amzn.to/4q8mbmU",
+    "imageUrl": "https://stylebeauti.com/onboarding/chelsea-boots-front.jpeg",
+    "images": [
+      "https://stylebeauti.com/onboarding/chelsea-boots-front.jpeg",
+      "https://stylebeauti.com/onboarding/chelsea-boots-model.jpeg"
+    ],
+    "tag": "Winter Chelsea Boots"
+  },
+  {
+    "id": "p34",
+    "slug": "ray-ban-rb3548n-hexagonal-sunglasses-gold-g15-green",
+    "name": "Ray-Ban RB3548N Hexagonal Sunglasses",
+    "brand": "Ray-Ban",
+    "category": "accessories",
+    "concerns": [
+      "sun-protection",
+      "eye-strain",
+      "outdoor-style"
+    ],
+    "showPriceCTA": true,
+    "price": 182.4,
+    "currency": "CAD",
+    "budget": "$$$",
+    "description": "Unisex hexagonal metal sunglasses featuring flat G-15 green lenses with 100% UV protection. Lightweight design with scratch-resistant, prescription-ready glass lenses and photochromatic technology that adjusts lens shade in sunlight.",
+    "affiliateUrl": "https://amzn.to/4rAUWCk",
+    "imageUrl": "https://stylebeauti.com/onboarding/rayban-rb3548n-front.png",
+    "images": [
+      "https://stylebeauti.com/onboarding/rayban-rb3548n-front.png",
+      "https://stylebeauti.com/onboarding/rayban-rb3548n-side.jpeg"
+    ],
+    "tag": "Designer Sunglasses"
+  },
+  {
+    "id": "p35",
+    "slug": "ray-ban-rb3016-clubmaster-sunglasses-black-gold-green",
+    "name": "Ray-Ban RB3016 Clubmaster Sunglasses",
+    "brand": "Ray-Ban",
+    "category": "accessories",
+    "concerns": [
+      "sun-protection",
+      "eye-strain",
+      "classic-style"
+    ],
+    "showPriceCTA": true,
+    "price": 182.4,
+    "currency": "CAD",
+    "budget": "$$$",
+    "description": "Iconic Clubmaster sunglasses featuring a black acetate and gold-tone metal frame with crystal green lenses. Lightweight, durable design with silicone nose pads and 100% UV protection for stylish everyday sun coverage.",
+    "affiliateUrl": "https://amzn.to/4ay51KF",
+    "imageUrl": "https://stylebeauti.com/onboarding/ray-ban-rb3016-front.png",
+    "images": [
+      "https://stylebeauti.com/onboarding/ray-ban-rb3016-front.png",
+      "https://stylebeauti.com/onboarding/ray-ban-rb3016.png"
+    ],
+    "tag": "Clubmaster Sunglasses"
+  },
+  {
+    "id": "p36",
+    "slug": "samsonite-base-boost-spinner-carry-on-red",
+    "name": "Samsonite Base Boost Spinner Carry-On",
+    "brand": "Samsonite",
+    "category": "accessories",
+    "concerns": [
+      "travel-organization",
+      "mobility",
+      "lightweight"
+    ],
+    "showPriceCTA": true,
+    "price": 103,
+    "currency": "CAD",
+    "budget": "$$",
+    "description": "Lightweight spinner carry-on luggage featuring multi-directional airflow wheels, push-button locking handle, fully lined interior with compression panel and cross-straps for organized and secure travel packing.",
+    "affiliateUrl": "https://amzn.to/46orYNU",
+    "imageUrl": "https://stylebeauti.com/onboarding/samsonite-base-boost-front.jpg",
+    "images": [
+      "https://stylebeauti.com/onboarding/samsonite-base-boost-front.jpg",
+      "https://stylebeauti.com/onboarding/samsonite-base-boost-back.jpg"
+    ],
+    "tag": "Carry-On Luggage"
+  },
+  {
+    "id": "p37",
+    "slug": "mens-wool-blend-double-breasted-pea-coat-camel",
+    "name": "Men's Wool Blend Double Breasted Pea Coat",
+    "brand": "HXW.GJQ",
+    "category": "mens-fashion",
+    "concerns": [
+      "cold-weather",
+      "formal-style",
+      "winter-comfort"
+    ],
+    "showPriceCTA": true,
+    "price": 138.65,
+    "currency": "CAD",
+    "budget": "$$",
+    "description": "Slim fit wool blend double-breasted pea coat featuring classic lapel collar, wind-resistant design, interior pockets, and warm insulated lining. Suitable for business, formal, and casual winter styling.",
+    "affiliateUrl": "https://amzn.to/3M7QNqB",
+    "imageUrl": "https://stylebeauti.com/onboarding/mens-peacoat-camel-front.jpg",
+    "images": [
+      "https://stylebeauti.com/onboarding/mens-peacoat-camel-front.jpg",
+      "https://stylebeauti.com/onboarding/mens-peacoat-camel-detail.png"
+    ],
+    "tag": "Wool Pea Coat"
+  },
+  {
+    "id": "p38",
+    "slug": "ecco-london-double-gore-chelsea-boot-cocoa-brown",
+    "name": "ECCO London Double Gore Chelsea Boot",
+    "brand": "ECCO",
+    "category": "mens-fashion",
+    "concerns": [
+      "comfort",
+      "city-style",
+      "all-day-wear"
+    ],
+    "showPriceCTA": true,
+    "price": 184.28,
+    "currency": "CAD",
+    "budget": "$$$",
+    "description": "Premium leather Chelsea ankle boot featuring elastic side panels, removable leather footbed for added width, and FLUIDFORM comfort technology for all-day city wear.",
+    "affiliateUrl": "https://amzn.to/3Oay6Da",
+    "imageUrl": "https://stylebeauti.com/onboarding/ecco-chelsea-boot-front.png",
+    "images": [
+      "https://stylebeauti.com/onboarding/ecco-chelsea-boot-front.png",
+      "https://stylebeauti.com/onboarding/ecco-chelsea-boot-side.jpg"
+    ],
+    "tag": "Leather Chelsea Boots"
+  },
+  {
+    "id": "p39",
+    "slug": "emporio-armani-ar11572-mens-watch-rose-gold-brown-leather",
+    "name": "Emporio Armani Three-Hand Date Leather Watch",
+    "brand": "Emporio Armani",
+    "category": "mens-fashion",
+    "concerns": [
+      "everyday-style",
+      "formal-wear",
+      "durability"
+    ],
+    "showPriceCTA": true,
+    "price": 189,
+    "currency": "CAD",
+    "budget": "$$$",
+    "description": "Classic 42mm analog watch featuring a rose gold-tone stainless steel case, white dial, three-hand quartz movement with date display, and genuine brown leather strap. Water resistant up to 50 meters.",
+    "affiliateUrl": "https://amzn.to/45VKVHz",
+    "imageUrl": "https://stylebeauti.com/onboarding/armani-watch-front.jpg",
+    "images": [
+      "https://stylebeauti.com/onboarding/armani-watch-front.jpg"
+    ],
+    "tag": "Designer Leather Watch"
+  },
+  {
+    "id": "p40",
+    "slug": "ray-ban-erika-rb4171-sunglasses-beige-brown-gradient",
+    "name": "Ray-Ban Erika RB4171 Sunglasses",
+    "brand": "Ray-Ban",
+    "category": "accessories",
+    "concerns": [
+      "sun-protection",
+      "eye-strain",
+      "fashion-style"
+    ],
+    "showPriceCTA": true,
+    "price": 168,
+    "currency": "CAD",
+    "budget": "$$$",
+    "description": "Oversized round unisex sunglasses featuring lightweight propionate frame, gradient lenses with 100% UV protection, and stylish everyday design suitable for sunny or hazy conditions.",
+    "affiliateUrl": "https://amzn.to/4alnZmy",
+    "imageUrl": "https://stylebeauti.com/onboarding/rayban-erika-front-model.jpg",
+    "images": [
+      "https://stylebeauti.com/onboarding/rayban-erika-front-model.jpg",
+      "https://stylebeauti.com/onboarding/rayban-erika-side.jpg"
+    ],
+    "tag": "Erika Sunglasses"
+  },
+  {
+    "id": "p41",
+    "slug": "citizen-corso-eco-drive-ladies-watch-two-tone-white",
+    "name": "Citizen Corso Eco-Drive Ladies Watch",
+    "brand": "Citizen",
+    "category": "accessories",
+    "concerns": [
+      "everyday-style",
+      "durability",
+      "water-resistance"
+    ],
+    "showPriceCTA": true,
+    "price": 321.75,
+    "currency": "CAD",
+    "budget": "$$$",
+    "description": "Elegant two-tone stainless steel women's watch featuring Eco-Drive light-powered technology, 3-hand date display, mineral crystal, and water resistance up to 100 meters.",
+    "affiliateUrl": "https://amzn.to/3Otf62P",
+    "imageUrl": "https://stylebeauti.com/onboarding/citizen-corso-watch-front.jpg",
+    "images": [
+      "https://stylebeauti.com/onboarding/citizen-corso-watch-front.jpg",
+      "https://stylebeauti.com/onboarding/citizen-corso-watch-model.jpg"
+    ],
+    "tag": "Eco-Drive Watch"
+  },
+  {
+    "id": "p42",
+    "slug": "citizen-axiom-eco-drive-ladies-watch-gold-black-ga1052-55e",
+    "name": "Citizen Axiom Eco-Drive Ladies Watch",
+    "brand": "Citizen",
+    "category": "accessories",
+    "concerns": [
+      "everyday-style",
+      "minimalist-design",
+      "durability"
+    ],
+    "showPriceCTA": true,
+    "price": 315.32,
+    "currency": "CAD",
+    "budget": "$$$",
+    "description": "Modern gold-tone stainless steel women's watch featuring Eco-Drive light-powered technology, minimalist black dial with 2-hand display, edge-to-edge glass design, and water resistance up to 30 meters.",
+    "affiliateUrl": "https://amzn.to/4rAA6Dd",
+    "imageUrl": "https://stylebeauti.com/onboarding/citizen-axiom-watch-front.jpg",
+    "images": [
+      "https://stylebeauti.com/onboarding/citizen-axiom-watch-front.jpg",
+      "https://stylebeauti.com/onboarding/citizen-axiom-watch-detail.jpg"
+    ],
+    "tag": "Eco-Drive Watch"
+  },
+  {
+    "id": "p43",
+    "slug": "fossil-gilmore-three-hand-gold-tone-watch",
+    "name": "Fossil Women's Gilmore Three-Hand Gold-Tone Stainless Steel Watch",
+    "brand": "Fossil",
+    "category": "accessories",
+    "concerns": [
+      "everyday-style",
+      "durability",
+      "classic-design"
+    ],
+    "showPriceCTA": true,
+    "price": 184,
+    "currency": "CAD",
+    "budget": "$$",
+    "description": "Classic and elegant gold-tone stainless steel watch featuring a silver dial with Roman numerals and three-hand quartz movement, perfect for everyday or dress occasions.",
+    "affiliateUrl": "https://amzn.to/4aAyPX4",
+    "imageUrl": "https://stylebeauti.com/onboarding/fossil-gold-watch-front.jpeg",
+    "images": [
+      "https://stylebeauti.com/onboarding/fossil-gold-watch-front.jpeg",
+      "https://stylebeauti.com/onboarding/fossil-gold-watch-detail.jpeg"
+    ],
+    "tag": "Elegant Gold Watch"
+  },
+  {
+    "id": "p45",
+    "slug": "thick-fiber-root-touch-up-hairline-powder-dark-brown",
+    "name": "THICK FIBER Root Touch Up & Hairline Powder",
+    "brand": "THICK FIBER",
+    "category": "haircare",
+    "concerns": [
+      "thinning-hair",
+      "grey-roots",
+      "hairline-coverage"
+    ],
+    "showPriceCTA": true,
+    "price": 28,
+    "currency": "CAD",
+    "budget": "$$",
+    "description": "Root touch-up powder designed to instantly conceal grey roots, thinning hair, and bald spots. Water and sweat resistant formula provides natural-looking, fuller hair coverage and lasts until shampooed. Includes puff, mirror, and precision brush for easy application.",
+    "affiliateUrl": "https://amzn.to/46etmmr",
+    "imageUrl": "https://stylebeauti.com/onboarding/thick-fiber-root-touch-model.jpg",
+    "images": [
+      "https://stylebeauti.com/onboarding/thick-fiber-root-touch-model.jpg",
+      "https://stylebeauti.com/onboarding/thick-fiber-root-touch-open.jpg"
+    ],
+    "tag": "Root Touch-Up Powder"
+  },
+  {
+    "id": "p46",
+    "slug": "gloria-vanderbilt-womens-pull-on-mid-rise-trouser-midnight-affair",
+    "name": "Gloria Vanderbilt Women's Pull On Mid Rise Trouser",
+    "brand": "Gloria Vanderbilt",
+    "category": "clothing",
+    "concerns": [
+      "comfort",
+      "stretch-fit",
+      "everyday-wear"
+    ],
+    "showPriceCTA": true,
+    "price": 43.06,
+    "currency": "CAD",
+    "budget": "$$",
+    "description": "Comfortable pull-on mid-rise trouser with elastic waistband and straight-leg fit. Made from soft stretch fabric with four functional pockets. Versatile style suitable for work, casual outings, or everyday wear.",
+    "affiliateUrl": "https://amzn.to/4r00fvb",
+    "imageUrl": "https://stylebeauti.com/onboarding/gloria-vanderbilt-trouser-front.jpeg",
+    "images": [
+      "https://stylebeauti.com/onboarding/gloria-vanderbilt-trouser-front.jpeg",
+      "https://stylebeauti.com/onboarding/gloria-vanderbilt-trouser-model.jpg"
+    ],
+    "tag": "Mid Rise Stretch Trouser"
+  },
+  {
+    "id": "p47",
+    "slug": "swarovski-bella-drop-crystal-earrings-rhodium",
+    "name": "Swarovski Bella Drop Crystal Earrings",
+    "brand": "Swarovski",
+    "category": "accessories",
+    "concerns": [
+      "elegant-style",
+      "special-occasion",
+      "gift-idea"
+    ],
+    "showPriceCTA": true,
+    "price": 55,
+    "currency": "CAD",
+    "budget": "$$$",
+    "description": "Elegant drop earrings featuring sparkling round Swarovski crystals set in a lightweight rhodium plated setting with pavé detailing and secure lever back closure. Perfect for both everyday wear and special occasions.",
+    "affiliateUrl": "https://amzn.to/4tszH7K",
+    "imageUrl": "https://stylebeauti.com/onboarding/swarovski-bella-earrings-front.jpeg",
+    "images": [
+      "https://stylebeauti.com/onboarding/swarovski-bella-earrings-front.jpeg",
+      "https://stylebeauti.com/onboarding/swarovski-bella-earrings-detail.jpg"
+    ],
+    "tag": "Crystal Drop Earrings"
+  },
+  {
+    "id": "p48",
+    "slug": "clinique-pop-lip-colour-glazed-berry",
+    "name": "Clinique Pop Lip Colour + Primer – Glazed Berry",
+    "brand": "Clinique",
+    "category": "skincare",
+    "concerns": [
+      "lip-definition",
+      "hydration",
+      "sensitive-skin"
+    ],
+    "showPriceCTA": true,
+    "price": 30.6,
+    "currency": "CAD",
+    "budget": "$$$",
+    "description": "Hydrating lipstick with a built-in 3D core that sculpts and contours lips while delivering smooth, defined color. The precision tip enhances the cupid’s bow and defines lips without the need for lip liner. Allergy tested, fragrance-free formula built on dermatologist-guided skincare science.",
+    "affiliateUrl": "https://amzn.to/4bHqEcu",
+    "imageUrl": "https://stylebeauti.com/onboarding/clinique-glazed-berry-front.png",
+    "images": [
+      "https://stylebeauti.com/onboarding/clinique-glazed-berry-front.png",
+      "https://stylebeauti.com/onboarding/clinique-glazed-berry-model.jpg"
+    ],
+    "tag": "Hydrating Lipstick"
+  },
+  {
+    "id": "p49",
+    "slug": "clinique-pop-plush-cream-lip-gloss-strawberry-pop",
+    "name": "Clinique Pop Plush Cream Lip Gloss – Strawberry Pop",
+    "brand": "Clinique",
+    "category": "skincare",
+    "concerns": [
+      "lip-hydration",
+      "plumping-effect",
+      "sensitive-skin"
+    ],
+    "showPriceCTA": true,
+    "price": 28.05,
+    "currency": "CAD",
+    "budget": "$$$",
+    "description": "Ultra-hydrating lip gloss delivering plush shine with a glossy, shimmery finish. Formulated with hyaluronic acid and nourishing butters to hydrate, smooth, and condition lips. Features an hourglass-shaped applicator for precise and effortless application. Allergy tested and fragrance free.",
+    "affiliateUrl": "https://amzn.to/4r3r8hN",
+    "imageUrl": "https://stylebeauti.com/onboarding/clinique-plush.jpg",
+    "images": [
+      "https://stylebeauti.com/onboarding/clinique-plush.jpg",
+      "https://stylebeauti.com/onboarding/clinique-pop-plush.jpg"
+    ],
+    "tag": "Hydrating Lip Gloss"
+  },
+  {
+    "id": "p50",
+    "slug": "michael-kors-jet-set-travel-large-chain-shoulder-bag",
+    "name": "Michael Kors Jet Set Travel Large Chain Shoulder Bag",
+    "brand": "Michael Kors",
+    "category": "bags",
+    "concerns": [
+      "organization",
+      "everyday-use",
+      "luxury-style"
+    ],
+    "showPriceCTA": true,
+    "price": 209,
+    "currency": "CAD",
+    "budget": "$$$",
+    "description": "Spacious and elegant shoulder bag crafted from durable Saffiano leather with gold-tone hardware. Features a secure zip closure, organized interior with one zip pocket and four slip pockets, plus exterior side pockets for easy access. A timeless everyday bag for work, travel, or daily wear.",
+    "affiliateUrl": "https://amzn.to/4kqEpyC",
+    "imageUrl": "https://stylebeauti.com/onboarding/mk-jet-set-travel.jpeg",
+    "images": [
+      "https://stylebeauti.com/onboarding/mk-jet-set-travel.jpeg",
+      "https://stylebeauti.com/onboarding/mk-jet-set-travel-model.jpeg"
+    ],
+    "tag": "Leather Shoulder Bag"
+  },
+  {
+    "id": "p51",
+    "slug": "arach-cloz-womens-wool-blend-spring-sweater",
+    "name": "Arach&Cloz Women's Wool Blend Spring Sweater",
+    "brand": "Arach&Cloz",
+    "category": "clothing",
+    "concerns": [
+      "comfort",
+      "cold-weather",
+      "everyday-style"
+    ],
+    "showPriceCTA": true,
+    "price": 37.39,
+    "currency": "CAD",
+    "budget": "$$",
+    "description": "Soft and breathable wool-blend pullover sweater designed with a classic V-neck and relaxed loose fit. Lightweight anti-pilling fabric resists wrinkles and provides comfortable everyday wear, perfect for fall and winter styling.",
+    "affiliateUrl": "https://amzn.to/3MmKcIK",
+    "imageUrl": "https://stylebeauti.com/onboarding/wool-blend-spring-sweater.jpg",
+    "images": [
+      "https://stylebeauti.com/onboarding/wool-blend-spring-sweater.jpg",
+      "https://stylebeauti.com/onboarding/wool-blend-spring-sweater-model.jpeg"
+    ],
+    "tag": "Wool Blend Sweater"
+  },
+  {
+    "id": "p52",
+    "slug": "arach-cloz-womens-wool-blend-v-neck-sweater",
+    "name": "Arach&Cloz Women's Wool Blend V-Neck Sweater",
+    "brand": "Arach&Cloz",
+    "category": "clothing",
+    "concerns": [
+      "comfort",
+      "cold-weather",
+      "everyday-style"
+    ],
+    "showPriceCTA": true,
+    "price": 43.99,
+    "currency": "CAD",
+    "budget": "$$",
+    "description": "Soft and breathable wool-blend pullover sweater designed with a classic V-neck and relaxed loose fit. Lightweight anti-pilling fabric resists wrinkles and provides comfortable everyday wear, perfect for fall and winter styling.",
+    "affiliateUrl": "https://amzn.to/3O922Q3",
+    "imageUrl": "https://stylebeauti.com/onboarding/arach-vneck.jpeg",
+    "images": [
+      "https://stylebeauti.com/onboarding/arach-vneck.jpeg",
+      "https://stylebeauti.com/onboarding/arach-vneck-model.jpeg"
+    ],
+    "tag": "Wool Blend Sweater"
+  },
+  {
+    "id": "p53",
+    "slug": "arach-cloz-womens-wool-blend-crew-neck-sweater",
+    "name": "Arach&Cloz Women's Wool Blend Crew Neck Sweater",
+    "brand": "Arach&Cloz",
+    "category": "clothing",
+    "concerns": [
+      "comfort",
+      "layering-style",
+      "all-season-wear",
+      "everyday-style"
+    ],
+    "showPriceCTA": true,
+    "price": 42.99,
+    "currency": "CAD",
+    "budget": "$$",
+    "description": "Soft and breathable wool-blend pullover sweater designed with a classic crew neck and relaxed loose fit. Lightweight anti-pilling fabric resists wrinkles and provides comfortable everyday wear across fall, winter, and spring seasons. Easy to style with jeans, skirts, or layered outfits for casual or business looks.",
+    "affiliateUrl": "https://amzn.to/4rHZ3wJ",
+    "imageUrl": "https://stylebeauti.com/onboarding/arach-crewneck-sweater-front.jpg",
+    "images": [
+      "https://stylebeauti.com/onboarding/arach-crewneck-sweater-front.jpg",
+      "https://stylebeauti.com/onboarding/arach-crewneck-sweater-model.jpeg"
+    ],
+    "tag": "Crew Neck Wool Blend Sweater"
+  },
+  {
+    "id": "p54",
+    "slug": "calvin-klein-rowena-square-toe-heeled-sandal",
+    "name": "Calvin Klein Rowena Square Toe Heeled Sandal",
+    "brand": "Calvin Klein",
+    "category": "shoes",
+    "concerns": [
+      "comfort",
+      "dress-style",
+      "everyday-wear"
+    ],
+    "showPriceCTA": true,
+    "price": 103.42,
+    "currency": "CAD",
+    "budget": "$$$",
+    "description": "Modern slip-on dress sandal crafted with a faux leather upper and sleek square toe design. Features a comfortable block heel and lightweight EVA sole, making it a versatile and stylish option for everyday wear or dress occasions.",
+    "affiliateUrl": "https://amzn.to/3M7SG6F",
+    "imageUrl": "https://stylebeauti.com/onboarding/calvin-klein-rowena-square.jpg",
+    "images": [
+      "https://stylebeauti.com/onboarding/calvin-klein-rowena-square.jpg",
+      "https://stylebeauti.com/onboarding/calvin-klein-rowena-square-side.jpg"
+    ],
+    "tag": "Heeled Dress Sandals"
+  },
+  {
+    "id": "p55",
+    "slug": "clinique-moisture-surge-eye-96-hour-hydro-filler-concentrate",
+    "name": "Clinique Moisture Surge Eye 96-Hour Hydro-Filler Concentrate",
+    "brand": "Clinique",
+    "category": "skincare",
+    "concerns": [
+      "fine-lines",
+      "hydration",
+      "eye-care",
+      "sensitive-skin"
+    ],
+    "showPriceCTA": true,
+    "price": 51,
+    "currency": "CAD",
+    "budget": "$$$",
+    "description": "Ultralight water-gel eye moisturizer that delivers intense hydration to visibly plump, tighten, and brighten the delicate eye area. Helps reduce the appearance of fine, dry lines while providing up to 96 hours of continuous moisture. Allergy tested, fragrance-free, dermatologist and ophthalmologist tested for all skin types.",
+    "affiliateUrl": "https://amzn.to/4kpAfH9",
+    "imageUrl": "https://stylebeauti.com/onboarding/clinique-moisture-surge-eye-front.jpeg",
+    "images": [
+      "https://stylebeauti.com/onboarding/clinique-moisture-surge-eye-front.jpeg",
+      "https://stylebeauti.com/onboarding/clinique-moisture-surge-eye-model.jpeg"
+    ],
+    "tag": "Hydrating Eye Gel"
+  },
+  {
+    "id": "p57",
+    "slug": "coofandy-mens-ribbed-turtleneck-sweater",
+    "name": "COOFANDY Men's Ribbed Turtleneck Sweater",
+    "brand": "COOFANDY",
+    "category": "clothing",
+    "concerns": [
+      "comfort",
+      "layering-style",
+      "all-season-wear",
+      "modern-style"
+    ],
+    "showPriceCTA": true,
+    "price": 40.99,
+    "currency": "CAD",
+    "budget": "$$",
+    "description": "Soft and stretchy ribbed knit turtleneck sweater designed for a slim and modern fit. Crafted from lightweight, breathable fabric that provides warmth and comfort for everyday wear. Versatile styling pairs easily with jeans, dress pants, or layered under jackets for casual or semi-formal occasions.",
+    "affiliateUrl": "https://amzn.to/4kknBsW",
+    "imageUrl": "https://stylebeauti.com/onboarding/coofandy-turtleneck-front.jpg",
+    "images": [
+      "https://stylebeauti.com/onboarding/coofandy-turtleneck-front.jpg",
+      "https://stylebeauti.com/onboarding/coofandy-turtleneck-model.jpg"
+    ],
+    "tag": "Ribbed Turtleneck Sweater"
+  },
+  {
+    "id": "p58",
+    "slug": "reef-one-slide-sandals",
+    "name": "REEF One Slide Sandals",
+    "brand": "REEF",
+    "category": "shoes",
+    "concerns": [
+      "comfort",
+      "waterproof",
+      "casual-wear",
+      "travel-friendly"
+    ],
+    "showPriceCTA": true,
+    "price": 34.97,
+    "currency": "CAD",
+    "budget": "$$",
+    "description": "Lightweight and waterproof slide sandals designed with a cushioned EVA footbed for all-day comfort. Features a padded strap and non-marking outsole for durability and easy everyday wear. Ideal for beach days, gym use, travel, or casual indoor and outdoor activities.",
+    "affiliateUrl": "https://amzn.to/400g8Ww",
+    "imageUrl": "https://stylebeauti.com/onboarding/reef-one-slide-front.jpg",
+    "images": [
+      "https://stylebeauti.com/onboarding/reef-one-slide-front.jpg",
+      "https://stylebeauti.com/onboarding/reef-one-slide-model.jpg"
+    ],
+    "tag": "Slide Sandals"
+  },
+  {
+    "id": "p59",
+    "slug": "veracosy-mens-corduroy-memory-foam-slip-on-slippers",
+    "name": "VeraCosy Men's Corduroy Memory Foam Slip-On Slippers",
+    "brand": "VeraCosy",
+    "category": "shoes",
+    "concerns": [
+      "comfort",
+      "indoor-wear",
+      "anti-slip",
+      "cold-weather"
+    ],
+    "showPriceCTA": true,
+    "price": 32.99,
+    "currency": "CAD",
+    "budget": "$$",
+    "description": "Comfortable closed-toe indoor slippers featuring a soft corduroy upper and plush fleece lining for warmth and breathability. Designed with high-density memory foam cushioning and a non-slip rubber outsole for stability and all-day comfort. Lightweight and foldable, perfect for home, travel, or relaxation.",
+    "affiliateUrl": "https://amzn.to/4rvmSHM",
+    "imageUrl": "https://stylebeauti.com/onboarding/veracosy-slippers-front.jpg",
+    "images": [
+      "https://stylebeauti.com/onboarding/veracosy-slippers-front.jpg",
+      "https://stylebeauti.com/onboarding/veracosy-slippers-model.jpg"
+    ],
+    "tag": "Memory Foam House Slippers"
+  },
+  {
+    "id": "p61",
+    "slug": "clinique-cheek-pop-blush-heather-pop",
+    "name": "Clinique Cheek Pop Blush – Heather Pop",
+    "brand": "Clinique",
+    "category": "skincare",
+    "concerns": [
+      "natural-glow",
+      "buildable-coverage",
+      "long-wear",
+      "sensitive-skin"
+    ],
+    "showPriceCTA": true,
+    "price": 34.85,
+    "currency": "CAD",
+    "budget": "$$",
+    "description": "Lightweight, buildable powder blush that delivers vibrant yet natural-looking cheek color. The long-wearing, virtually powderless formula allows you to apply a sheer flush or build intensity for a more defined look. Allergy tested and fragrance-free, developed with dermatologist-guided skincare science for all skin tones.",
+    "affiliateUrl": "https://amzn.to/3OthG91",
+    "imageUrl": "https://stylebeauti.com/onboarding/clinique-heather-pop-blush-front.jpg",
+    "images": [
+      "https://stylebeauti.com/onboarding/clinique-heather-pop-blush-front.jpg",
+      "https://stylebeauti.com/onboarding/clinique-heather-pop-blush-model.jpg"
+    ],
+    "tag": "Powder Blush"
+  },
+  {
+    "id": "p62",
+    "slug": "btfbm-womens-high-waist-wide-leg-palazzo-pants",
+    "name": "BTFBM Women's High Waist Wide Leg Palazzo Pants",
+    "brand": "BTFBM",
+    "category": "clothing",
+    "concerns": [
+      "comfort-fit",
+      "office-style",
+      "versatile-outfit",
+      "business-casual"
+    ],
+    "showPriceCTA": true,
+    "price": 54.99,
+    "currency": "CAD",
+    "budget": "$$",
+    "description": "Stylish and comfortable high-waist wide leg palazzo pants designed with a pleated front and elastic waistband at the back for an adjustable and flattering fit. Crafted from breathable, soft fabric with a loose silhouette, these versatile trousers are perfect for office wear, casual outings, meetings, parties, or special occasions.",
+    "affiliateUrl": "https://amzn.to/4cg9hQf",
+    "imageUrl": "https://stylebeauti.com/onboarding/btfbm-palazzo-pants-front.jpg",
+    "images": [
+      "https://stylebeauti.com/onboarding/btfbm-palazzo-pants-front.jpg",
+      "https://stylebeauti.com/onboarding/btfbm-palazzo-pants-model.jpg"
+    ],
+    "tag": "Wide Leg Palazzo Pants"
+  },
+  {
+    "id": "p63",
+    "slug": "michael-kors-bryant-convertible-shoulder-bag-leather",
+    "name": "Michael Kors Bryant Convertible Shoulder Bag",
+    "brand": "Michael Kors",
+    "category": "bags",
+    "concerns": [
+      "luxury-style",
+      "everyday-carry",
+      "evening-bag",
+      "gift-idea"
+    ],
+    "showPriceCTA": true,
+    "price": 159.73,
+    "currency": "CAD",
+    "budget": "$$$",
+    "description": "A chic and versatile convertible shoulder bag crafted from burnished pebbled leather with antique gold-tone hardware. Designed in a sleek pochette silhouette that offers more space than expected, this elegant accessory can be styled as a clutch, wristlet, or shoulder bag for effortless day-to-night glamour.",
+    "affiliateUrl": "https://amzn.to/4bMERFf",
+    "imageUrl": "https://stylebeauti.com/onboarding/mk-bryant-bag-front.jpg",
+    "images": [
+      "https://stylebeauti.com/onboarding/mk-bryant-bag-front.jpg",
+      "https://stylebeauti.com/onboarding/mk-bryant-bag-model.jpg"
+    ],
+    "tag": "Convertible Leather Shoulder Bag"
+  },
+  {
+    "id": "p64",
+    "slug": "clinique-pop-lip-colour-primer-rose-pop-matte",
+    "name": "Clinique Pop Lip Colour + Primer Lipstick",
+    "brand": "Clinique",
+    "category": "skincare",
+    "concerns": [
+      "long-wear",
+      "lip-definition",
+      "hydration",
+      "sensitive-skin"
+    ],
+    "showPriceCTA": true,
+    "price": 28.9,
+    "currency": "CAD",
+    "budget": "$$",
+    "description": "Richly pigmented Clinique lipstick delivering full-coverage matte color with a built-in smoothing primer. The long-wearing formula provides up to 8 hours of color-true wear while helping lips feel smooth and comfortable. Allergy tested and 100% fragrance free, making it suitable for all skin types and everyday wear.",
+    "affiliateUrl": "https://amzn.to/4kqb8Ec",
+    "imageUrl": "https://stylebeauti.com/onboarding/clinique-pop-rose-lipstick-front.jpg",
+    "images": [
+      "https://stylebeauti.com/onboarding/clinique-pop-rose-lipstick-front.jpg",
+      "https://stylebeauti.com/onboarding/clinique-pop-rose-lipstick-swatch.jpg"
+    ],
+    "tag": "Matte Lipstick"
+  },
+  {
+    "id": "p65",
+    "slug": "womens-long-winter-puffer-jacket-insulated-water-repellent",
+    "name": "Women’s Long Winter Puffer Jacket",
+    "brand": "Generic",
+    "category": "clothing",
+    "concerns": [
+      "cold-weather",
+      "water-repellent",
+      "outdoor-comfort",
+      "winter-style"
+    ],
+    "showPriceCTA": true,
+    "price": 56.95,
+    "currency": "CAD",
+    "budget": "$$",
+    "description": "Warm and stylish long puffer jacket designed for cold weather protection. Made with high-tech insulation to block cold air while maintaining lightweight comfort. Features a stand collar, windproof cuffs, and detachable hood for extra warmth. Water and stain-repellent fabric protects against light rain and spills. Durable, recyclable polyester construction with multiple secure pockets makes this jacket perfect for everyday winter wear and outdoor activities.",
+    "affiliateUrl": "https://amzn.to/4rmjrUh",
+    "imageUrl": "https://stylebeauti.com/onboarding/winter-puffer-jacket-product.jpg",
+    "images": [
+      "https://stylebeauti.com/onboarding/winter-puffer-jacket-product.jpg",
+      "https://stylebeauti.com/onboarding/winter-puffer-jacket-model.jpg"
+    ],
+    "tag": "Winter Puffer Jacket"
+  },
+  {
+    "id": "p66",
+    "slug": "pointed-toe-knee-high-faux-leather-chunky-heel-boots",
+    "name": "Women’s Pointed Toe Knee-High Chunky Heel Boots",
+    "brand": "Generic",
+    "category": "shoes",
+    "concerns": [
+      "style-elevation",
+      "comfort-heel",
+      "easy-wear",
+      "versatile-outfit"
+    ],
+    "showPriceCTA": true,
+    "price": 79.99,
+    "currency": "CAD",
+    "budget": "$$",
+    "description": "Fashion-forward knee-high boots designed with a sleek pointed toe and streamlined silhouette to visually elongate the legs. Crafted from soft faux leather with a breathable lining and full-length side zipper for easy wear. The chunky block heel provides stability and comfort, while the non-slip rubber outsole ensures confident steps. Stylish and versatile, these boots pair effortlessly with dresses, skirts, or jeans for any occasion.",
+    "affiliateUrl": "https://amzn.to/4qCfwRW",
+    "imageUrl": "https://stylebeauti.com/onboarding/pointed-knee-high-boots-product.jpg",
+    "images": [
+      "https://stylebeauti.com/onboarding/pointed-knee-high-boots-product.jpg",
+      "https://stylebeauti.com/onboarding/pointed-knee-high-boots-model.jpg"
+    ],
+    "tag": "Pointed Toe Knee-High Boots"
+  },
+  {
+    "id": "p67",
+    "slug": "wrangler-womens-high-rise-fierce-flare-jeans-stretch-32-inseam",
+    "name": "Wrangler Women’s High Rise Fierce Flare Jeans",
+    "brand": "Wrangler",
+    "category": "clothing",
+    "concerns": [
+      "flattering-fit",
+      "comfort-stretch",
+      "high-rise",
+      "everyday-denim"
+    ],
+    "showPriceCTA": true,
+    "price": 73.38,
+    "currency": "CAD",
+    "budget": "$$",
+    "description": "High-rise flare jeans designed to flatter with a curve-hugging fit through the seat and thigh, finished with a contoured waistband for a smooth silhouette. The back rise sits slightly higher for extra coverage while the front is lower for comfort when sitting. Made from authentic cotton-rich denim with stretch for all-day comfort. Finished with Wrangler’s iconic ‘W’ back pocket stitching and leather patch, plus classic five-pocket styling.",
+    "affiliateUrl": "https://amzn.to/4qKdZcF",
+    "imageUrl": "https://stylebeauti.com/onboarding/wrangler-fierce-flare-product.jpg",
+    "images": [
+      "https://stylebeauti.com/onboarding/wrangler-fierce-flare-product.jpg",
+      "https://stylebeauti.com/onboarding/wrangler-fierce-flare-model.jpg"
+    ],
+    "tag": "High-Rise Flare Jeans"
+  },
+  {
+    "id": "p68",
+    "slug": "ugg-tasman-ii-slipper-chestnut-suede-shearling",
+    "name": "UGG Tasman II Slipper",
+    "brand": "UGG",
+    "category": "shoes",
+    "concerns": [
+      "comfort",
+      "cold-weather",
+      "cozy-style",
+      "indoor-outdoor-wear"
+    ],
+    "showPriceCTA": true,
+    "price": 149.96,
+    "currency": "CAD",
+    "budget": "$$$",
+    "description": "Premium suede slip-on slippers designed for everyday comfort with a cozy sheepskin lining and lightweight cushioning. Features signature UGGbraid collar detailing and a durable EVA outsole for indoor and outdoor wear. Made with genuine dyed sheep or lamb fur for warmth and softness. Stylish, comfortable, and perfect for lounging or casual outings.",
+    "affiliateUrl": "https://amzn.to/4rSBaT6",
+    "imageUrl": "https://stylebeauti.com/onboarding/ugg-tasman-slipper-product.jpg",
+    "images": [
+      "https://stylebeauti.com/onboarding/ugg-tasman-slipper-product.jpg",
+      "https://stylebeauti.com/onboarding/ugg-tasman-slipper-model.jpg"
+    ],
+    "tag": "Shearling Slippers"
+  },
+  {
+    "id": "p69",
+    "slug": "athlefit-platform-knee-high-boots-square-toe-black",
+    "name": "Athlefit Platform Knee High Chunky Boots",
+    "brand": "Athlefit",
+    "category": "shoes",
+    "concerns": [
+      "comfort",
+      "winter-style",
+      "everyday-wear",
+      "fashion-boots"
+    ],
+    "showPriceCTA": true,
+    "price": 79.99,
+    "currency": "CAD",
+    "budget": "$$",
+    "description": "Fashion-forward knee high platform boots designed with a modern square toe and chunky heel for stylish height and comfort. Made from flexible PU leather with a side zipper for easy wear and a snug fit. Durable sole provides all-day comfort, making these boots perfect for everyday wear, work, travel, or special occasions. Versatile design transitions effortlessly from casual outfits to elegant looks.",
+    "affiliateUrl": "https://amzn.to/4bXquxL",
+    "imageUrl": "https://stylebeauti.com/onboarding/athlefit-knee-high-boots-product.jpg",
+    "images": [
+      "https://stylebeauti.com/onboarding/athlefit-knee-high-boots-product.jpg",
+      "https://stylebeauti.com/onboarding/athlefit-knee-high-boots-model.jpg"
+    ],
+    "tag": "Platform Knee High Boots"
+  },
+  {
+    "id": "p70",
+    "slug": "agwolf-14k-gold-cross-zircon-stud-earrings",
+    "name": "AGWOLF 14K Gold Criss-Cross Stud Earrings",
+    "brand": "AGWOLF",
+    "category": "accessories",
+    "concerns": [
+      "everyday-style",
+      "hypoallergenic",
+      "lightweight-comfort"
+    ],
+    "showPriceCTA": true,
+    "price": 14.99,
+    "currency": "CAD",
+    "budget": "$",
+    "description": "Elegant criss-cross gold stud earrings designed to elevate any jewelry collection. Featuring a stylish intersecting design that stands out beautifully whether worn alone or stacked with other earrings. Made from high-quality brass and plated with 14K gold for long-lasting shine. Lightweight, hypoallergenic, and comfortable for all-day wear.",
+    "affiliateUrl": "https://share.google/L2i8DXpyqtHFWjVj5",
+    "imageUrl": "https://stylebeauti.com/onboarding/agwolf-cross-earrings-product.jpg",
+    "images": [
+      "https://stylebeauti.com/onboarding/agwolf-cross-earrings-product.jpg",
+      "https://stylebeauti.com/onboarding/agwolf-cross-earrings-model.jpg"
+    ],
+    "tag": "Minimalist Gold Jewelry"
+  },
+  {
+    "id": "p71",
+    "slug": "jetech-iphone-16-pro-max-screen-protector-3pack",
+    "name": "JETech Tempered Glass Screen Protector (3-Pack)",
+    "brand": "JETech",
+    "category": "accessories",
+    "concerns": [
+      "screen-protection",
+      "scratch-resistance",
+      "fingerprint-resistance"
+    ],
+    "showPriceCTA": true,
+    "price": 9.99,
+    "currency": "CAD",
+    "budget": "$",
+    "description": "Premium tempered glass screen protector specially designed for iPhone 16 Pro Max (6.9-inch). Built with 9H high hardness glass to protect against scratches, drops, and daily wear. Features ultra-clear transparency and high touch sensitivity for a natural screen experience. The hydrophobic and oleophobic coating resists fingerprints, oil, and smudges. Includes an easy installation tool for perfect alignment and bubble-free application. Designed with 2.5D curved edges and compatible with most phone cases.",
+    "affiliateUrl": "https://share.google/U08lKzmfMeqTNyh8W",
+    "imageUrl": "https://stylebeauti.com/onboarding/jetech-screen-protector-product.jpg",
+    "images": [
+      "https://stylebeauti.com/onboarding/jetech-screen-protector-product.jpg",
+      "https://stylebeauti.com/onboarding/jetech-screen-protector-model.jpg"
+    ],
+    "tag": "Amazon's Choice"
+  },
+  {
+    "id": "p72",
+    "slug": "Jeyfull-Huggie-Hoop-Earrings-Set-gold-plated",
+    "name": "Jeyfull Huggie Hoop Earrings Set gold plated",
+    "brand": "Jeyfull",
+    "category": "accessories",
+    "concerns": [
+      "sensitive-ears",
+      "lightweight",
+      "everyday-style"
+    ],
+    "showPriceCTA": true,
+    "price": 15.99,
+    "currency": "CAD",
+    "budget": "$",
+    "description": "Minimalist chunky gold hoop earrings designed for everyday comfort and style. Lightweight and easy to wear with a secure click-top closure. Made with hypoallergenic stainless steel posts and real gold plating for sensitive ears. Simple, elegant, and versatile — perfect for daily wear or as a thoughtful gift.",
+    "affiliateUrl": "https://share.google/yAg5gU3WoakaijGqh",
+    "imageUrl": "https://stylebeauti.com/onboarding/chunky-hoop-earrings-product.jpg",
+    "images": [
+      "https://stylebeauti.com/onboarding/chunky-hoop-earrings-product.jpg",
+      "https://stylebeauti.com/onboarding/chunky-hoop-earrings-model.jpg"
+    ],
+    "tag": "Chunky Gold Hoop Earrings"
+  },
+  {
+    "id": "p73",
+    "slug": "chunky-drop-earrings",
+    "name": "Chunky drop Earrings",
+    "brand": "Shinelab",
+    "category": "accessories",
+    "concerns": [
+      "sensitive-ears",
+      "lightweight",
+      "everyday-style"
+    ],
+    "showPriceCTA": true,
+    "price": 14.99,
+    "currency": "CAD",
+    "budget": "$",
+    "description": "Stylish circular drop earrings featuring a chunky twisted knot design with thick geometric links. Lightweight yet sturdy with a smooth finish for comfortable all-day wear. Made from nickel-free hypoallergenic metal that resists oxidation to maintain color over time. A timeless design perfect for casual or formal occasions and ideal for gifting.",
+    "affiliateUrl": "https://share.google/OWJPsZQOznT4O1mnL",
+    "imageUrl": "https://stylebeauti.com/onboarding/twisted-knot-earrings-product.jpg",
+    "images": [
+      "https://stylebeauti.com/onboarding/twisted-knot-earrings-product.jpg",
+      "https://stylebeauti.com/onboarding/twisted-knot-earrings-model.jpg"
+    ],
+    "tag": "Chunky Knot Drop Earrings"
+  },
+  {
+    "id": "p74",
+    "slug": "lilieandwhite-chunky-gold-hoop-earrings-19mm",
+    "name": "LILIE&WHITE Chunky Gold Hoop Earrings",
+    "brand": "LILIE&WHITE",
+    "category": "accessories",
+    "concerns": [
+      "sensitive-ears",
+      "lightweight",
+      "everyday-style"
+    ],
+    "showPriceCTA": true,
+    "price": 13.08,
+    "currency": "CAD",
+    "budget": "$",
+    "description": "Minimalist chunky gold hoop earrings designed for everyday comfort and effortless style. Lightweight and easy to wear with a secure click-top closure. Made with hypoallergenic stainless steel posts and real gold plating to protect sensitive ears. Elegant, versatile, and perfect for daily wear or as a thoughtful gift.",
+    "affiliateUrl": "https://share.google/zZptua1Yz0ROwJq4O",
+    "imageUrl": "https://stylebeauti.com/onboarding/lilieandwhite-hoop-earrings-product.jpg",
+    "images": [
+      "https://stylebeauti.com/onboarding/lilieandwhite-hoop-earrings-product.jpg",
+      "https://stylebeauti.com/onboarding/lilieandwhite-hoop-earrings-model.jpg"
+    ],
+    "tag": "Amazon's Choice Chunky Gold Hoops"
+  }
+]
