@@ -1,5 +1,4 @@
 // app/(tabs)/index.tsx
-// app/(tabs)/index.tsx
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useFocusEffect, useRouter } from "expo-router";
 import React from "react";
@@ -38,8 +37,6 @@ export default function Home() {
   };
 
   const goSuggest = () => {
-    // if (onboarded === null) return;
-    // router.push(onboarded ? "/suggest" : "/onboarding");
     router.push("/suggest");
   };
 
@@ -71,7 +68,7 @@ export default function Home() {
             marginBottom: 16,
           }}
         >
-          Your personal style & beauty shopper. Discover beauty, skincare, and
+          Personalized beauty routines & curated style guidance. Discover beauty, skincare, and
           clothing picks that fit your needs — curated with clarity, trust, and
           any budget in mind. ✨
         </Text>
@@ -118,7 +115,7 @@ export default function Home() {
             }}
           >
             <Text style={{ color: "white", fontWeight: "800", fontSize: 16 }}>
-              {onboarded ? "Explore" : "Get started"}
+              {onboarded ? "Explore" : "Find My Routine"}
             </Text>
           </Pressable>
         </View>
@@ -138,3 +135,5 @@ export default function Home() {
     </Page>
   );
 }
+
+
