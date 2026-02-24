@@ -3,6 +3,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import type { Product } from "./products";
 import localProducts from "./products.local.json";
 
+
 function toStr(v: any) {
   return typeof v === "string" ? v : v == null ? "" : String(v);
 }
@@ -59,9 +60,13 @@ function normalizeList(rawList: any[]): Product[] {
   return rawList.map(normalizeOne).filter(isValidProduct);
 }
 
-const CACHE_KEY = "products_cache_v1";
-const CACHE_TS_KEY = "products_cache_ts_v1";
-const ONE_DAY_MS = 24 * 60 * 60 * 1000;
+// const CACHE_KEY = "products_cache_v1";
+// const CACHE_TS_KEY = "products_cache_ts_v1";
+
+const CACHE_KEY = "products_cache_v2";
+const CACHE_TS_KEY = "products_cache_ts_v2";
+
+const ONE_DAY_MS = 6 * 60 * 60 * 1000; // 6 hours
 
 // ✅ Your live URL (keep the one you already use)
 function productsUrl() {

@@ -77,9 +77,9 @@ export default function PostDetail() {
                   <Text style={{ marginTop: 6, opacity: 0.7 }}>
                     ⭐ {item.rating.toFixed(1)}
                   </Text>
-                  <Text style={{ marginTop: 6, fontWeight: "500" }}>
-                    {item.price}
-                  </Text>
+                  <Text style={{ marginTop: 6, fontWeight: "300" }}>
+                  Check price from retailer
+                 </Text>
                 </View>
 
                 <Pressable

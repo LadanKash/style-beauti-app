@@ -1,7 +1,7 @@
-// //add big image
+
 // app/products/index.tsx
 import { useRouter } from "expo-router";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { ActivityIndicator, FlatList, Image, Text, View } from "react-native";
 import MenuSheet from "../components/MenuSheet";
 import TopNav from "../components/TopNav";
@@ -10,21 +10,34 @@ import ProductCard from "@/src/components/ProductCard";
 import type { Product } from "@/src/data/products";
 import { fetchProducts } from "@/src/data/products.api";
 
-
 export default function ProductsScreen() {
   const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
 
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
+  const [refreshing, setRefreshing] = useState(false); // ✅ add
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    fetchProducts()
-      .then(setProducts)
-      .catch(() => setError("Failed to load products"))
-      .finally(() => setLoading(false));
+  const loadProducts = useCallback(async (opts?: { forceRefresh?: boolean }) => {
+    const force = !!opts?.forceRefresh;
+
+    try {
+      force ? setRefreshing(true) : setLoading(true);
+      setError(null);
+
+      const data = await fetchProducts({ forceRefresh: force });
+      setProducts(data);
+    } catch (e: any) {
+      setError(e?.message || "Failed to load products");
+    } finally {
+      force ? setRefreshing(false) : setLoading(false);
+    }
   }, []);
+
+  useEffect(() => {
+    loadProducts(); // normal load
+  }, [loadProducts]);
 
   const Footer = (
     <View style={{ paddingVertical: 14, alignItems: "center" }}>
@@ -49,11 +62,9 @@ export default function ProductsScreen() {
         items={[
           { label: "Home", onPress: () => router.push("/(tabs)") },
           { label: "Explore", onPress: () => router.push("/(tabs)/explore") },
-          // { label: "Products", onPress: () => {} },
           { label: "Inspiration Looks", onPress: () => router.push("/looks") },
           { label: "Collection", onPress: () => router.push("/lists") },
           { label: "Find my routine", onPress: () => router.push("/routine") },
-          // { label: "Saved", onPress: () => router.push("/(tabs)/saved") },
           { label: "Saved routines", onPress: () => router.push("/(tabs)/saved-routines") },
           { label: "Disclosure", onPress: () => router.push("/disclosure") },
           { label: "Privacy", onPress: () => router.push("/privacy") },
@@ -78,6 +89,8 @@ export default function ProductsScreen() {
           data={products}
           keyExtractor={(item) => item.id}
           contentContainerStyle={{ gap: 14, paddingBottom: 18, paddingTop: 14 }}
+          refreshing={refreshing}                 // ✅ add
+          onRefresh={() => loadProducts({ forceRefresh: true })} // ✅ add
           ListHeaderComponent={
             <View style={{ marginBottom: 14 }}>
               <Image

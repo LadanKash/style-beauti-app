@@ -1,11 +1,17 @@
-
 // app/looks/[id].tsx
 import { Stack, useLocalSearchParams } from "expo-router";
 import React from "react";
-import { ActivityIndicator, Image, Linking, Pressable, ScrollView, Text, View } from "react-native";
+import {
+  ActivityIndicator,
+  Image,
+  Linking,
+  Pressable,
+  ScrollView,
+  Text,
+  View,
+} from "react-native";
 
 import { fetchLooks, type Look } from "@/src/data/looks.api";
-
 import type { Product } from "@/src/data/products";
 import { fetchProducts } from "@/src/data/products.api";
 
@@ -20,6 +26,25 @@ export default function LookDetailScreen() {
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState<string | null>(null);
 
+  // ✅ Hooks must be ABOVE any early return
+  const look = React.useMemo(() => looks.find((l) => l.id === id), [looks, id]);
+
+  const productById = React.useMemo(() => {
+    const map = new Map<string, Product>();
+    products.forEach((p) => map.set(p.id, p));
+    return map;
+  }, [products]);
+
+  const items: LookItemView[] = React.useMemo(() => {
+    if (!look) return [];
+    return (look.items || [])
+      .map((li) => {
+        const p = productById.get(li.productId);
+        return p ? { product: p, label: li.label } : null;
+      })
+      .filter(Boolean) as LookItemView[];
+  }, [look, productById]);
+
   React.useEffect(() => {
     let alive = true;
 
@@ -28,8 +53,11 @@ export default function LookDetailScreen() {
         setLoading(true);
         setError(null);
 
-        // fetch both in parallel 
-        const [looksData, productsData] = await Promise.all([fetchLooks(), fetchProducts()]);
+        // fetch both in parallel
+        const [looksData, productsData] = await Promise.all([
+          fetchLooks(),
+          fetchProducts(),
+        ]);
 
         if (!alive) return;
         setLooks(looksData);
@@ -47,9 +75,17 @@ export default function LookDetailScreen() {
     };
   }, []);
 
+  // ✅ Now early returns are safe
   if (loading) {
     return (
-      <View style={{ flex: 1, backgroundColor: "#FAF7F4", justifyContent: "center", alignItems: "center" }}>
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: "#FAF7F4",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <ActivityIndicator />
         <Text style={{ marginTop: 10, opacity: 0.7 }}>Loading…</Text>
       </View>
@@ -58,29 +94,37 @@ export default function LookDetailScreen() {
 
   if (error) {
     return (
-      <View style={{ flex: 1, backgroundColor: "#FAF7F4", justifyContent: "center", alignItems: "center", padding: 16 }}>
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: "#FAF7F4",
+          justifyContent: "center",
+          alignItems: "center",
+          padding: 16,
+        }}
+      >
         <Text style={{ fontWeight: "700" }}>Couldn’t load data</Text>
-        <Text style={{ marginTop: 6, opacity: 0.7, textAlign: "center" }}>{error}</Text>
+        <Text style={{ marginTop: 6, opacity: 0.7, textAlign: "center" }}>
+          {error}
+        </Text>
       </View>
     );
   }
 
-  const look = looks.find((l) => l.id === id);
-
   if (!look) {
     return (
-      <View style={{ flex: 1, backgroundColor: "#FAF7F4", justifyContent: "center", alignItems: "center" }}>
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: "#FAF7F4",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <Text>Look not found.</Text>
       </View>
     );
   }
-
-  const items: LookItemView[] = look.items
-    .map((li) => {
-      const p = products.find((x) => x.id === li.productId);
-      return p ? { product: p, label: li.label } : null;
-    })
-    .filter(Boolean) as LookItemView[];
 
   return (
     <View style={{ flex: 1, backgroundColor: "#FAF7F4" }}>
@@ -96,7 +140,11 @@ export default function LookDetailScreen() {
       <ScrollView contentContainerStyle={{ paddingBottom: 80 }}>
         {/* HERO */}
         <View style={{ position: "relative" }}>
-          <Image source={{ uri: look.imageUrl }} style={{ width: "100%", height: 320 }} resizeMode="cover" />
+          <Image
+            source={{ uri: look.imageUrl }}
+            style={{ width: "100%", height: 320 }}
+            resizeMode="cover"
+          />
 
           {/* overlay title */}
           <View
@@ -110,7 +158,9 @@ export default function LookDetailScreen() {
             }}
           >
             <Text style={{ fontSize: 22, fontWeight: "800" }}>{look.title}</Text>
-            {!!look.subtitle && <Text style={{ marginTop: 4, opacity: 0.75 }}>{look.subtitle}</Text>}
+            {!!look.subtitle && (
+              <Text style={{ marginTop: 4, opacity: 0.75 }}>{look.subtitle}</Text>
+            )}
           </View>
         </View>
 
@@ -147,7 +197,6 @@ export default function LookDetailScreen() {
                   {product.brand} • {product.budget}
                 </Text>
               </View>
-              {/* <Text style={{ fontWeight: "700", opacity: 0.7 }}>Open</Text> */}
             </Pressable>
           ))}
 
@@ -168,3 +217,4 @@ export default function LookDetailScreen() {
     </View>
   );
 }
+

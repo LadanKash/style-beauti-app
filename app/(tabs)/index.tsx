@@ -33,13 +33,12 @@ export default function Home() {
 
   const onGetStarted = () => {
     if (onboarded === null) return;
-    router.push(onboarded ? "/(tabs)/explore" : "/onboarding");
+    router.push(onboarded ? "/(tabs)/explore" : "/onboarding" );
   };
 
   const goSuggest = () => {
     router.push("/suggest");
   };
-
   const resetOnboarding = async () => {
     await AsyncStorage.removeItem(KEY);
     setOnboarded(false);
@@ -68,9 +67,9 @@ export default function Home() {
             marginBottom: 16,
           }}
         >
-          Personalized beauty routines & curated style guidance. Discover beauty, skincare, and
-          clothing picks that fit your needs — curated with clarity, trust, and
-          any budget in mind. ✨
+          Personalized beauty routines & curated style guidance. Discover beauty,
+          skincare, and clothing picks that fit your needs — curated with clarity,
+          trust, and any budget in mind. ✨
         </Text>
 
         <Image
@@ -97,7 +96,7 @@ export default function Home() {
               opacity: onboarded === null ? 0.6 : 1,
             }}
           >
-            <Text style={{ color: "#2A2A2A", fontWeight: "800", fontSize: 16 }}>
+            <Text style={{ color: "#2A2A2A", fontWeight: "700", fontSize: 16 }}>
               ✨ AI Suggest
             </Text>
           </Pressable>
@@ -128,12 +127,10 @@ export default function Home() {
               color: "#6B6B6B",
             }}
           >
-            Reset onboarding (dev)
+            Reset onboarding
           </Text>
         </Pressable>
       </View>
     </Page>
   );
 }
-
-
