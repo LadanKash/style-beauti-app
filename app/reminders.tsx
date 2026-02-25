@@ -12,11 +12,20 @@ import {
   type ReminderSettings,
 } from "@/src/lib/notifications";
 
+import { Brand } from '@/constants/theme';
+
+<Pressable
+  style={{
+    backgroundColor: Brand.primary,
+  }}
+>
+</Pressable>
+
 const BG = "#F7F7F4";
 const CARD = "#FFFFFF";
 const TEXT = "#1F1F1F";
 const SUB = "rgba(31,31,31,0.68)";
-const PINK = "#E6A4B4";
+const PINK = Brand.primary;
 
 function toDate(hour: number, minute: number) {
   const d = new Date();
@@ -220,7 +229,7 @@ export default function RemindersScreen() {
           onPress={save}
           style={{
             marginTop: 14,
-            backgroundColor: PINK,
+            backgroundColor: Brand.primarySoft,
             paddingVertical: 14,
             borderRadius: 999,
             alignItems: "center",

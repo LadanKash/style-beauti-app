@@ -7,11 +7,12 @@ import {
   FlatList,
   Pressable,
   Text,
-  View
+  View,
 } from "react-native";
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import NetInfo from "@react-native-community/netinfo";
+import { Image as ExpoImage } from "expo-image";
 
 import type { Product } from "@/src/data/products";
 import { fetchProducts } from "@/src/data/products.api";
@@ -19,15 +20,19 @@ import { fetchProducts } from "@/src/data/products.api";
 import MenuSheet from "./components/MenuSheet";
 import TopNav from "./components/TopNav";
 
-
-
+// --- theme tokens (keep local so we never depend on missing Brand keys)
 const BG = "#FAF7F4";
 const CARD = "#FFFFFF";
 const TEXT = "#1F1F1F";
 const SUB = "rgba(31,31,31,0.68)";
 const BORDER = "rgba(0,0,0,0.08)";
-const PINK_BG = "rgba(230,164,180,0.18)";
-const PINK_BORDER = "rgba(230,164,180,0.22)";
+
+// brand pinks (safe)
+const PRIMARY = "#D97C96";                 // strong
+const PRIMARY_SOFT = "#E6A4B4";            // soft
+const PRIMARY_SOFT_BG = "rgba(217,124,150,0.18)";
+const PRIMARY_BORDER = "rgba(217,124,150,0.28)";
+const ACCENT_SOFT = "#F7D5DD";             // very light pink
 
 type Budget = "all" | "$" | "$$" | "$$$";
 type Category =
@@ -81,9 +86,7 @@ function getProductBudget(p: Product): Budget {
 function getProductConcernText(p: Product): string {
   const anyP: any = p as any;
   const tags = Array.isArray(anyP.tags) ? anyP.tags.join(" ") : "";
-  const concernsArr = Array.isArray(anyP.concerns)
-    ? anyP.concerns.join(" ")
-    : "";
+  const concernsArr = Array.isArray(anyP.concerns) ? anyP.concerns.join(" ") : "";
   const concern = norm(anyP.concern || "");
 
   return [p.name, anyP.brand, anyP.description, tags, concernsArr, concern]
@@ -91,12 +94,7 @@ function getProductConcernText(p: Product): string {
     .join(" ");
 }
 
-function scoreProduct(
-  p: Product,
-  category: Category,
-  concern: Concern,
-  budget: Budget
-) {
+function scoreProduct(p: Product, category: Category, concern: Concern, budget: Budget) {
   let score = 0;
 
   if (category !== "all") {
@@ -147,13 +145,7 @@ function Chip({
         marginBottom: 10,
       }}
     >
-      <Text
-        style={{
-          fontWeight: "700",
-          color: active ? "#F7F1F1" : TEXT,
-          fontSize: 12,
-        }}
-      >
+      <Text style={{ fontWeight: "700", color: active ? "#F7F1F1" : TEXT, fontSize: 12 }}>
         {label}
       </Text>
     </Pressable>
@@ -167,48 +159,79 @@ function Badge({ text }: { text: string }) {
         paddingVertical: 6,
         paddingHorizontal: 10,
         borderRadius: 999,
-        backgroundColor: "rgba(230, 164, 181, 0.52)",
+        backgroundColor: "rgba(217,124,150,0.40)",
         borderWidth: 1,
-        borderColor: PINK_BORDER,
+        borderColor: PRIMARY_BORDER,
       }}
     >
-      <Text style={{ fontSize: 12, fontWeight: "800", color: TEXT }}>
-        {text}
-      </Text>
+      <Text style={{ fontSize: 12, fontWeight: "800", color: TEXT }}>{text}</Text>
     </View>
   );
 }
+
+type PillVariant = "secondary" | "primary" | "outline";
 
 function PillButton({
   title,
   subtitle,
   onPress,
-  variant = "neutral",
+  variant = "secondary",
+  disabled = false,
 }: {
   title: string;
   subtitle?: string;
   onPress: () => void;
-  variant?: "neutral" | "pink";
+  variant?: PillVariant;
+  disabled?: boolean;
 }) {
+  const isPrimary = variant === "primary";
+  const isOutline = variant === "outline";
+
+  const bgBase = disabled
+    ? "rgba(0,0,0,0.03)"
+    : isPrimary
+      ? PRIMARY
+      : isOutline
+        ? ACCENT_SOFT
+        : "rgba(0,0,0,0.04)";
+
+  const borderBase = disabled
+    ? "rgba(0,0,0,0.06)"
+    : isPrimary
+      ? PRIMARY
+      : isOutline
+        ? PRIMARY_BORDER
+        : "rgba(0,0,0,0.06)";
+
+  const titleColor = disabled ? "rgba(31,31,31,0.35)" : isPrimary ? "#fff" : TEXT;
+  const subColor = disabled ? "rgba(31,31,31,0.30)" : isPrimary ? "rgba(255,255,255,0.85)" : SUB;
+
+  const bgPressed = disabled
+    ? bgBase
+    : isPrimary
+      ? PRIMARY_SOFT
+      : isOutline
+        ? PRIMARY_SOFT_BG
+        : "rgba(0,0,0,0.08)";
+
   return (
     <Pressable
-      onPress={onPress}
-      style={{
+      disabled={disabled}
+      onPress={disabled ? undefined : onPress}
+      style={({ pressed }) => ({
         flex: 1,
         paddingVertical: 12,
         borderRadius: 16,
-        backgroundColor: variant === "pink" ? PINK_BG : "rgba(0,0,0,0.04)",
         alignItems: "center",
         borderWidth: 1,
-        borderColor: variant === "pink" ? PINK_BORDER : "rgba(0,0,0,0.06)",
-      }}
+        borderColor: borderBase,
+        backgroundColor: pressed ? bgPressed : bgBase,
+        transform: [{ scale: pressed ? 0.98 : 1 }],
+        opacity: disabled ? 0.9 : pressed ? 0.98 : 1,
+      })}
     >
-      <Text style={{ fontWeight: "800", color: TEXT }}>{title}</Text>
-      {!!subtitle && (
-        <Text style={{ fontSize: 12, color: SUB, marginTop: 2 }}>
-          {subtitle}
-        </Text>
-      )}
+      <Text style={{ fontWeight: "800", color: titleColor }}>{title}</Text>
+      {!!subtitle && <Text style={{ fontSize: 12, color: subColor, marginTop: 2 }}>{subtitle}</Text>}
     </Pressable>
   );
 }
@@ -234,10 +257,8 @@ function OfflineBadge() {
   );
 }
 
-import { Image as ExpoImage } from "expo-image";
-
 function ImageBox({ uri, isOnline }: { uri?: string; isOnline: boolean }) {
-  const show = !!uri; // ✅ allow image even offline (if cached)
+  const show = !!uri;
 
   return (
     <View
@@ -258,7 +279,7 @@ function ImageBox({ uri, isOnline }: { uri?: string; isOnline: boolean }) {
           source={{ uri }}
           style={{ width: "100%", height: "100%" }}
           contentFit="cover"
-          cachePolicy="disk"   // ⭐ caches image locally
+          cachePolicy="disk"
         />
       ) : (
         <View style={{ paddingHorizontal: 8 }}>
@@ -279,7 +300,6 @@ function ImageBox({ uri, isOnline }: { uri?: string; isOnline: boolean }) {
   );
 }
 
-
 export default function SuggestScreen() {
   const router = useRouter();
 
@@ -288,14 +308,12 @@ export default function SuggestScreen() {
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState<string | null>(null);
 
-  // stored profile
   const [category, setCategory] = React.useState<Category>("all");
   const [budget, setBudget] = React.useState<Budget>("all");
   const [concern, setConcern] = React.useState<Concern>("all");
 
   const [seed, setSeed] = React.useState(0);
   const [showPersonalize, setShowPersonalize] = React.useState(false);
-
   const [isOnline, setIsOnline] = React.useState(true);
 
   const categories: { key: Category; label: string }[] = [
@@ -348,29 +366,20 @@ export default function SuggestScreen() {
           if (p?.budget) setBudget(p.budget);
           if (p?.concern) setConcern(p.concern);
         }
-      } catch {
-        // ignore
-      }
+      } catch {}
     })();
     return () => {
       alive = false;
     };
   }, []);
 
-  // persist profile silently
+  // persist profile
   React.useEffect(() => {
     (async () => {
-      const profile: SuggestProfile = {
-        category,
-        budget,
-        concern,
-        updatedAt: Date.now(),
-      };
+      const profile: SuggestProfile = { category, budget, concern, updatedAt: Date.now() };
       try {
         await AsyncStorage.setItem(PROFILE_KEY, JSON.stringify(profile));
-      } catch {
-        // ignore
-      }
+      } catch {}
     })();
   }, [category, budget, concern]);
 
@@ -394,34 +403,26 @@ export default function SuggestScreen() {
     };
   }, []);
 
-  // ✅ PICKS + ✅ SHUFFLE (seed is used here)
   const picks = React.useMemo(() => {
     const scored = products
       .map((p) => {
         const base = scoreProduct(p, category, concern, budget);
 
-        const img = ((p as any).imageUrl ?? "").length > 0 ? 1 : 0;
-        const brand = ((p.brand ?? "").length > 0) ? 1 : 0;
-        const starterBoost = hasProfile ? 0 : (img + brand) * 0.5;
+        // if no profile, boost items with image/brand slightly so starter list looks better
+        const imgBoost = ((p as any).imageUrl ?? "").length > 0 ? 0.4 : 0;
+        const brandBoost = (p.brand ?? "").length > 0 ? 0.2 : 0;
+        const starterBoost = hasProfile ? 0 : imgBoost + brandBoost;
 
         const key = String((p as any).id ?? (p as any).slug ?? p.name);
         const rand = hashToUnit(seed, key);
-
-        // Optional: tiny jitter to make shuffle more noticeable
-        const jitter = (rand - 0.5) * 0.2; // -0.1..+0.1
+        const jitter = (rand - 0.5) * 0.2;
 
         return { p, s: base + starterBoost + jitter, r: rand };
       })
-      .sort((a, b) => {
-        if (b.s !== a.s) return b.s - a.s;
-        return b.r - a.r;
-      });
+      .sort((a, b) => (b.s !== a.s ? b.s - a.s : b.r - a.r));
 
-    const filtered = scored.filter((x) => {
-      if (!hasProfile) return true;
-      return x.s >= 4;
-    });
-
+    // If personalized, keep it “curated”
+    const filtered = scored.filter((x) => (!hasProfile ? true : x.s >= 4));
     const pool = filtered.length ? filtered : scored;
     return pool.slice(0, 6).map((x) => x.p);
   }, [products, category, concern, budget, seed, hasProfile]);
@@ -531,7 +532,7 @@ export default function SuggestScreen() {
 
       <FlatList
         data={picks}
-        keyExtractor={(p) => String((p as any).id ?? p.name)}
+        keyExtractor={(p) => String((p as any).id ?? (p as any).slug ?? p.name)}
         contentContainerStyle={{ padding: 14, paddingBottom: 28 }}
         ListHeaderComponent={
           <View style={{ alignSelf: "center", width: "100%", maxWidth: 520 }}>
@@ -553,12 +554,12 @@ export default function SuggestScreen() {
                 <View style={{ alignItems: "flex-end" }}>
                   <View
                     style={{
-                      backgroundColor: PINK_BG,
+                      backgroundColor: PRIMARY_SOFT_BG,
                       paddingHorizontal: 12,
                       paddingVertical: 6,
                       borderRadius: 999,
                       borderWidth: 1,
-                      borderColor: PINK_BORDER,
+                      borderColor: PRIMARY_BORDER,
                     }}
                   >
                     <Text style={{ fontWeight: "800", color: TEXT }}>{picks.length}</Text>
@@ -569,18 +570,25 @@ export default function SuggestScreen() {
 
               {!isOnline && <OfflineBadge />}
 
+              {/* Buttons: Shuffle light, Personalize strong */}
               <View style={{ flexDirection: "row", gap: 10, marginTop: 14 }}>
-                <PillButton title="Shuffle" subtitle="New picks" onPress={() => setSeed((v) => v + 1)} />
+                <PillButton
+                  title="Shuffle"
+                  subtitle="New picks"
+                  onPress={() => setSeed((v) => v + 1)}
+                  variant="secondary"
+                />
                 <PillButton
                   title={showPersonalize ? "Hide" : "Personalize"}
                   subtitle="Update preferences"
                   onPress={() => setShowPersonalize((v) => !v)}
-                  variant="pink"
+                  variant="primary"
                 />
               </View>
 
+              {/* Buttons: Reset light, How it works light pink */}
               <View style={{ flexDirection: "row", gap: 10, marginTop: 10 }}>
-                <PillButton title="Reset" subtitle="Clear profile" onPress={reset} />
+                <PillButton title="Reset" subtitle="Clear profile" onPress={reset} variant="secondary" />
                 <PillButton
                   title="How it works"
                   subtitle="Why these picks"
@@ -590,7 +598,7 @@ export default function SuggestScreen() {
                       "We create a short list of top picks based on your Style Profile (category, concern, budget). You can shuffle to refresh and personalize anytime."
                     )
                   }
-                  variant="pink"
+                  variant="outline"
                 />
               </View>
             </View>
@@ -614,26 +622,38 @@ export default function SuggestScreen() {
                 <Text style={{ marginTop: 12, color: SUB, fontWeight: "800" }}>Category</Text>
                 <View style={{ flexDirection: "row", flexWrap: "wrap", marginTop: 8 }}>
                   {categories.map((c) => (
-                    <Chip key={c.key} label={c.label} active={category === c.key} onPress={() => setCategory(c.key)} />
+                    <Chip
+                      key={c.key}
+                      label={c.label}
+                      active={category === c.key}
+                      onPress={() => setCategory(c.key)}
+                    />
                   ))}
                 </View>
 
                 <Text style={{ marginTop: 2, color: SUB, fontWeight: "800" }}>Budget</Text>
                 <View style={{ flexDirection: "row", flexWrap: "wrap", marginTop: 8 }}>
                   {budgets.map((b) => (
-                    <Chip key={b.key} label={b.label} active={budget === b.key} onPress={() => setBudget(b.key)} />
+                    <Chip
+                      key={b.key}
+                      label={b.label}
+                      active={budget === b.key}
+                      onPress={() => setBudget(b.key)}
+                    />
                   ))}
                 </View>
 
                 <Text style={{ marginTop: 2, color: SUB, fontWeight: "800" }}>Concern</Text>
                 <View style={{ flexDirection: "row", flexWrap: "wrap", marginTop: 8 }}>
                   {concerns.map((c) => (
-                    <Chip key={c.key} label={c.label} active={concern === c.key} onPress={() => setConcern(c.key)} />
+                    <Chip
+                      key={String(c.key)}
+                      label={c.label}
+                      active={concern === c.key}
+                      onPress={() => setConcern(c.key)}
+                    />
                   ))}
                 </View>
-
-                <Text style={{ marginTop: 10, fontWeight: "800", color: TEXT }}>Top picks</Text>
-                <Text style={{ marginTop: 4, color: SUB }}>Tap a product to open it.</Text>
               </View>
             )}
           </View>
@@ -702,9 +722,9 @@ export default function SuggestScreen() {
                         paddingVertical: 8,
                         paddingHorizontal: 12,
                         borderRadius: 999,
-                        backgroundColor: PINK_BG,
+                        backgroundColor: PRIMARY_SOFT,
                         borderWidth: 1,
-                        borderColor: PINK_BORDER,
+                        borderColor: PRIMARY_BORDER,
                       }}
                     >
                       <Text style={{ fontWeight: "900", color: TEXT, fontSize: 12 }}>View</Text>

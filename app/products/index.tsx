@@ -16,7 +16,7 @@ export default function ProductsScreen() {
 
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
-  const [refreshing, setRefreshing] = useState(false); // ✅ add
+  const [refreshing, setRefreshing] = useState(false); 
   const [error, setError] = useState<string | null>(null);
 
   const loadProducts = useCallback(async (opts?: { forceRefresh?: boolean }) => {
@@ -89,8 +89,8 @@ export default function ProductsScreen() {
           data={products}
           keyExtractor={(item) => item.id}
           contentContainerStyle={{ gap: 14, paddingBottom: 18, paddingTop: 14 }}
-          refreshing={refreshing}                 // ✅ add
-          onRefresh={() => loadProducts({ forceRefresh: true })} // ✅ add
+          refreshing={refreshing}                
+          onRefresh={() => loadProducts({ forceRefresh: true })} 
           ListHeaderComponent={
             <View style={{ marginBottom: 14 }}>
               <Image

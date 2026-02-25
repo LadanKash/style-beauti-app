@@ -15,9 +15,17 @@ import {
   useWindowDimensions,
 } from "react-native";
 
+import { Brand } from '@/constants/theme'; // adjust path
 import type { Product } from "@/src/data/products";
 import { fetchProducts } from "@/src/data/products.api";
 import Page from "../components/Page";
+
+<Pressable
+  style={{
+    backgroundColor: Brand.primary,
+  }}
+></Pressable>
+
 const PLACEHOLDER_URL = "https://stylebeauti.com/placeholders/post-winter.jpg";
 
 export default function ProductPage() {
@@ -132,7 +140,7 @@ export default function ProductPage() {
               <View
                 style={{
                   alignSelf: "flex-start",
-                  backgroundColor: "rgba(230,164,180,0.25)",
+                  backgroundColor: "rgba(230, 164, 181, 0.5)",
                   paddingHorizontal: 12,
                   paddingVertical: 6,
                   borderRadius: 999,
@@ -171,7 +179,7 @@ export default function ProductPage() {
               onPress={() => product.affiliateUrl && Linking.openURL(product.affiliateUrl)}
               style={{
                 marginTop: 24,
-                backgroundColor: "#E6A4B4",
+                backgroundColor: Brand.primary,
                 paddingVertical: 16,
                 borderRadius: 999,
                 alignItems: "center",

@@ -1,10 +1,18 @@
 // app/(tabs)/index.tsx
+import { Brand } from '@/constants/theme'; // adjust path
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useFocusEffect, useRouter } from "expo-router";
 import React from "react";
 import { Image, Pressable, Text, View } from "react-native";
 import Page from "../components/Page";
 
+<Pressable
+  style={{
+    backgroundColor: Brand.primary,
+  }}
+>
+  
+</Pressable>
 const KEY = "sb_onboarded";
 const HERO = require("../../assets/products/hero.png");
 
@@ -97,7 +105,8 @@ export default function Home() {
             }}
           >
             <Text style={{ color: "#2A2A2A", fontWeight: "700", fontSize: 16 }}>
-              ✨ AI Suggest
+              {/* ✨ AI Suggest */}
+              AI Suggest
             </Text>
           </Pressable>
 
@@ -105,7 +114,7 @@ export default function Home() {
             onPress={onGetStarted}
             style={{
               flex: 1,
-              backgroundColor: "#E6A4B4",
+              backgroundColor: "#D97C96",
               paddingVertical: 14,
               paddingHorizontal: 18,
               borderRadius: 999,

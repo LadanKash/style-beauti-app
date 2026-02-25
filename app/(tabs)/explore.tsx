@@ -13,6 +13,16 @@ import { isSaved, toggleSaved } from "@/src/lib/saved";
 import MenuSheet from "../components/MenuSheet";
 import TopNav from "../components/TopNav";
 
+import { Brand } from '@/constants/theme'; // adjust path
+
+<Pressable
+  style={{
+    backgroundColor: Brand.primary,
+  }}
+>
+
+</Pressable>
+
 type Filter = "all" | string;
 
 function Chip({
@@ -31,9 +41,9 @@ function Chip({
         paddingVertical: 10,
         paddingHorizontal: 14,
         borderRadius: 999,
-        backgroundColor: active ? "#E6A4B4" : "#FFFFFF",
+        backgroundColor: active ? Brand.primary : "#FFFFFF",
         borderWidth: 1,
-        borderColor: active ? "#E6A4B4" : "rgba(43,42,42,0.12)",
+        borderColor: active ? Brand.primary : "rgba(43,42,42,0.12)",
       }}
     >
       <Text
@@ -312,7 +322,7 @@ export default function ExploreScreen() {
                       style={{
                         marginTop: 6,
                         alignSelf: "flex-start",
-                        backgroundColor: "rgba(230,164,180,0.25)",
+                        backgroundColor: "rgba(230, 164, 181, 0.82)",
                         paddingHorizontal: 10,
                         paddingVertical: 5,
                         borderRadius: 999,
@@ -363,7 +373,7 @@ export default function ExploreScreen() {
                   <Ionicons
                     name={saved ? "bookmark" : "bookmark-outline"}
                     size={20}
-                    color={saved ? "#E6A4B4" : "rgba(43,42,42,0.7)"}
+                    color={saved ? Brand.primary : "rgba(43,42,42,0.7)"}
                   />
                 </Pressable>
               </View>

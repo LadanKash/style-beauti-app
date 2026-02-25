@@ -7,9 +7,15 @@ import type { Product } from "@/src/data/products";
 import { fetchProducts } from "@/src/data/products.api";
 import { getRoutines, saveRoutine } from "@/src/storage/routines";
 
+import { Brand } from '@/constants/theme'; // adjust path
 import MenuSheet from "../components/MenuSheet";
 import TopNav from "../components/TopNav";
 
+<Pressable
+  style={{
+    backgroundColor: Brand.primary,
+  }}
+></Pressable>
 function Chip({
   label,
   active,
@@ -26,9 +32,9 @@ function Chip({
         paddingVertical: 10,
         paddingHorizontal: 14,
         borderRadius: 999,
-        backgroundColor: active ? "#E6A4B4" : "#FFFFFF",
+        backgroundColor: active ? Brand.primary : "#FFFFFF",
         borderWidth: 1,
-        borderColor: active ? "#E6A4B4" : "rgba(43,42,42,0.12)",
+        borderColor: active ? Brand.primary : "rgba(43,42,42,0.12)",
       }}
     >
       <Text
@@ -340,8 +346,8 @@ Alert.alert("Saved", "Your routine was saved to your phone.", [
                   flex: 1,
                   backgroundColor:
                     (step === 1 && category) || (step === 2 && concern) || (step === 3 && budget)
-                      ? "#E6A4B4"
-                      : "rgba(230,164,180,0.35)",
+                      ? Brand.primary
+                      : Brand.primary,
                   borderRadius: 999,
                   paddingVertical: 14,
                   alignItems: "center",

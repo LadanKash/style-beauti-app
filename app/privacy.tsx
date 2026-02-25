@@ -35,7 +35,7 @@ export default function Privacy() {
         ]}
       />
 
-      {/* ✅ CONTENT (fills the screen, footer stays pinned) */}
+      {/*  CONTENT (fills the screen, footer stays pinned) */}
       <ScrollView
         style={{ flex: 1 }}
         contentContainerStyle={{ padding: 24, paddingBottom: 24 }}
@@ -127,7 +127,7 @@ export default function Privacy() {
         </Text>
       </ScrollView>
 
-      {/* ✅ FOOTER pinned to bottom */}
+      {/*  FOOTER pinned to bottom */}
       <View
         style={{
           alignItems: "center",

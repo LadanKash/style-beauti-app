@@ -1,4 +1,5 @@
 // app/onboarding.tsx
+import { Brand } from '@/constants/theme'; // adjust path
 import { theme } from "@/src/constants/theme";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useRouter } from "expo-router";
@@ -6,6 +7,13 @@ import React, { useEffect, useMemo, useState } from "react";
 import { Image, Pressable, ScrollView, Text, View } from "react-native";
 import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
 
+<Pressable
+  style={{
+    backgroundColor: Brand.primary,
+  }}
+>
+  
+</Pressable>
 type Step = {
   title: string;
   subtitle: string;
@@ -22,7 +30,7 @@ export default function Onboarding() {
     () => [
       {
         title: "Welcome to Style & Beauty",
-        subtitle: "Your personal beauty shopper — fast, simple, trusted.",
+        subtitle: "Your personal beauty guide — curated, quick, and trusted.",
         bullets: [
           { title: "Curated", desc: "Only the best picks — no endless scrolling." },
           { title: "Personal", desc: "Matched to your needs, taste, and budget." },
@@ -182,14 +190,14 @@ export default function Onboarding() {
               {!isLast ? (
                 <Pressable
                   onPress={() => setIndex((v) => v + 1)}
-                  style={{ paddingVertical: 10, paddingHorizontal: 16, borderRadius: 999, backgroundColor: "#E6A4B4" }}
+                  style={{ paddingVertical: 10, paddingHorizontal: 16, borderRadius: 999, backgroundColor: Brand.primary }}
                 >
                   <Text style={{ color: "white", fontWeight: "800" }}>Continue</Text>
                 </Pressable>
               ) : (
                 <Pressable
                   onPress={finish}
-                  style={{ paddingVertical: 10, paddingHorizontal: 16, borderRadius: 999, backgroundColor: "#E6A4B4" }}
+                  style={{ paddingVertical: 10, paddingHorizontal: 16, borderRadius: 999, backgroundColor: Brand.primary }}
                 >
                   <Text style={{ color: "white", fontWeight: "800" }}>Find my routine</Text>
                 </Pressable>
