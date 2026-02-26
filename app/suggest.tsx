@@ -1,13 +1,15 @@
 // app/suggest.tsx
 import { useRouter } from "expo-router";
 import React from "react";
+
 import {
   ActivityIndicator,
   Alert,
   FlatList,
   Pressable,
   Text,
-  View,
+  useWindowDimensions,
+  View
 } from "react-native";
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -19,6 +21,8 @@ import { fetchProducts } from "@/src/data/products.api";
 
 import MenuSheet from "./components/MenuSheet";
 import TopNav from "./components/TopNav";
+
+
 
 // --- theme tokens (keep local so we never depend on missing Brand keys)
 const BG = "#FAF7F4";
@@ -301,7 +305,17 @@ function ImageBox({ uri, isOnline }: { uri?: string; isOnline: boolean }) {
 }
 
 export default function SuggestScreen() {
+
   const router = useRouter();
+
+  const { width } = useWindowDimensions();
+  const isTablet = width >= 768;
+
+  const contentMaxWidth = isTablet ? 900 : 520;
+  const cardMaxWidth = isTablet ? 700 : 500;
+  const numColumns = isTablet ? 2 : 1;
+
+  // ...rest of your state/effects
 
   const [menuOpen, setMenuOpen] = React.useState(false);
   const [products, setProducts] = React.useState<Product[]>([]);
@@ -531,11 +545,13 @@ export default function SuggestScreen() {
       />
 
       <FlatList
-        data={picks}
+         data={picks}
+         numColumns={numColumns}
+         key={numColumns}
         keyExtractor={(p) => String((p as any).id ?? (p as any).slug ?? p.name)}
         contentContainerStyle={{ padding: 14, paddingBottom: 28 }}
         ListHeaderComponent={
-          <View style={{ alignSelf: "center", width: "100%", maxWidth: 520 }}>
+          <View style={{ alignSelf: "center", width: "100%", maxWidth: contentMaxWidth }}>
             <View
               style={{
                 backgroundColor: CARD,
