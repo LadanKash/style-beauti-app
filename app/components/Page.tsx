@@ -22,7 +22,7 @@ export default function Page({
   const router = useRouter();
   const [menuOpen, setMenuOpen] = React.useState(false);
 
-  // ✅ default behavior like Explore:
+  // default behavior like Explore:
   // show back automatically if router can go back
   const autoBack = router.canGoBack();
   const finalShowBack = typeof showBack === "boolean" ? showBack : autoBack;
@@ -43,9 +43,9 @@ export default function Page({
           { label: "Home", onPress: () => router.push("/(tabs)") },
           { label: "Explore", onPress: () => router.push("/(tabs)/explore") },
           // { label: "Products", onPress: () => router.push("/products") },
-          { label: "Inspiration Looks", onPress: () => router.push("/looks") },
-          { label: "Collection", onPress: () => router.push("/lists") },
-          { label: "Find my routine", onPress: () => router.push("/routine") },
+          { label: "Inspiration Looks", onPress: () => router.push("/(tabs)/looks") },
+          { label: "Collection", onPress: () => router.push("/(tabs)/lists") },
+          { label: "Find my routine", onPress: () => router.push("/(tabs)/routine") },
           // { label: "Saved", onPress: () => router.push("/(tabs)/saved") },
           { label: "Saved routines", onPress: () => router.push("/(tabs)/saved-routines") },
           { label: "Disclosure", onPress: () => router.push("/disclosure") },

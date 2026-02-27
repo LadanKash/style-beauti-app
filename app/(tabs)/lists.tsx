@@ -1,5 +1,3 @@
-
-
 // app/(tabs)/lists.tsx
 import { lists } from "@/src/data/lists";
 import { router } from "expo-router";

@@ -1,5 +1,4 @@
-//app/(tabs)/_layout.tsx
-
+// app/(tabs)/_layout.tsx
 import { Ionicons } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
 
@@ -35,40 +34,27 @@ export default function TabsLayout() {
           ),
         }}
       />
-<Tabs.Screen name="saved-routines" options={{ href: null }} />
-<Tabs.Screen name="lists" options={{ href: null }} />
 
-       <Tabs.Screen
-  name="looks"
-  options={{
-    title: "Inspiration Looks",
-    tabBarIcon: ({ color, size }) => (
-      <Ionicons name="sparkles-outline" size={size} color={color} />
-    ),
-  }}
-/>
-
-
-      {/* <Tabs.Screen
-  name="saved-routines"
-  options={{
-    title: "Routines",
-    tabBarIcon: ({ color, size }) => (
-      <Ionicons name="bookmarks-outline" size={size} color={color} />
-    ),
-  }}
-/> */}
-
-{/* 
+      {/*  Routine tab  */}
       <Tabs.Screen
-        name="lists"
+        name="routine"
         options={{
-          title: "Collections",
+          title: "Routine",
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="albums-outline" size={size} color={color} />
+            <Ionicons name="sparkles-outline" size={size} color={color} />
           ),
         }}
-      /> */}
+      />
+
+      <Tabs.Screen
+        name="looks"
+        options={{
+          title: "Inspiration",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="star-outline" size={size} color={color} />
+          ),
+        }}
+      />
 
       <Tabs.Screen
         name="saved"
@@ -79,6 +65,10 @@ export default function TabsLayout() {
           ),
         }}
       />
+
+      {/* Hide these from footer but keep routes accessible */}
+      <Tabs.Screen name="saved-routines" options={{ href: null }} />
+      <Tabs.Screen name="lists" options={{ href: null }} />
     </Tabs>
   );
 }

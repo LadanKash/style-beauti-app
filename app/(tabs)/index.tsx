@@ -1,18 +1,10 @@
 // app/(tabs)/index.tsx
-import { Brand } from '@/constants/theme';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useFocusEffect, useRouter } from "expo-router";
 import React from "react";
 import { Image, Pressable, Text, View } from "react-native";
 import Page from "../components/Page";
 
-<Pressable
-  style={{
-    backgroundColor: Brand.primary,
-  }}
->
-  
-</Pressable>
 const KEY = "sb_onboarded";
 const HERO = require("../../assets/products/hero.png");
 
@@ -39,17 +31,17 @@ export default function Home() {
 
   useFocusEffect(loadOnboarding);
 
-  const onGetStarted = () => {
-    if (onboarded === null) return;
-    router.push(onboarded ? "/(tabs)/explore" : "/onboarding" );
+  const goRoutine = () => {
+    router.push("/(tabs)/routine");
+  };
+
+  // Always open "How it works" (info mode)
+  const goHowItWorks = () => {
+    router.push("/onboarding?mode=info");
   };
 
   const goSuggest = () => {
     router.push("/suggest");
-  };
-  const resetOnboarding = async () => {
-    await AsyncStorage.removeItem(KEY);
-    setOnboarded(false);
   };
 
   return (
@@ -77,40 +69,28 @@ export default function Home() {
         >
           Personalized beauty routines & curated style guidance. Discover beauty,
           skincare, and clothing picks that fit your needs — curated with clarity,
-          trust, and any budget in mind. ✨
+          trust, and any budget in mind.
         </Text>
 
-        {/* <Image
-          source={HERO}
+        <View
           style={{
             width: "100%",
-            height: 300,
+            aspectRatio: 1.1,
             borderRadius: 22,
             marginBottom: 18,
-          
+            overflow: "hidden",
           }}
-          resizeMode="cover"
-        /> */}
-
-<View
-  style={{
-    width: "100%",
-    aspectRatio: 1.1,
-    borderRadius: 22,
-    marginBottom: 18,
-    overflow: "hidden",
-  }}
->
-  <Image
-    source={HERO}
-    style={{
-      width: "100%",
-      height: "110%",            
-      transform: [{ translateY: 12 }],  
-    }}
-    resizeMode="cover"
-  />
-</View>
+        >
+          <Image
+            source={HERO}
+            style={{
+              width: "100%",
+              height: "110%",
+              transform: [{ translateY: 12 }],
+            }}
+            resizeMode="cover"
+          />
+        </View>
 
         <View style={{ flexDirection: "row", gap: 12, alignItems: "center" }}>
           <Pressable
@@ -126,13 +106,12 @@ export default function Home() {
             }}
           >
             <Text style={{ color: "#2A2A2A", fontWeight: "700", fontSize: 16 }}>
-              {/* ✨ AI Suggest */}
               AI Suggest
             </Text>
           </Pressable>
 
           <Pressable
-            onPress={onGetStarted}
+            onPress={goRoutine}
             style={{
               flex: 1,
               backgroundColor: "#D97C96",
@@ -144,20 +123,31 @@ export default function Home() {
             }}
           >
             <Text style={{ color: "white", fontWeight: "800", fontSize: 16 }}>
-              {onboarded ? "Explore" : "Find My Routine"}
+              Find My Routine
             </Text>
           </Pressable>
         </View>
 
-        <Pressable onPress={resetOnboarding} style={{ marginTop: 16 }}>
+        {/* Always visible */}
+        <Pressable
+          onPress={goHowItWorks}
+          style={{
+            marginTop: 14,
+            alignSelf: "center",
+            paddingVertical: 6,
+            paddingHorizontal: 10,
+          }}
+        >
           <Text
             style={{
-              textDecorationLine: "underline",
-              opacity: 0.7,
+              fontSize: 14,
               color: "#6B6B6B",
+              opacity: 0.8,
+              textDecorationLine: "underline",
+              fontWeight: "500",
             }}
           >
-            Reset onboarding
+            How it works
           </Text>
         </Pressable>
       </View>

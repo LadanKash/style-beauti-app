@@ -86,7 +86,7 @@ export default function SavedRoutineDetail() {
           { label: "Explore", onPress: () => router.push("/(tabs)/explore") },
           { label: "Products", onPress: () => router.push("/products") },
           { label: "Look", onPress: () => router.push("/looks") },
-          { label: "Find my routine", onPress: () => router.push("/routine") },
+          { label: "Find my routine", onPress: () => router.push("/(tabs)/routine") },
           { label: "Saved", onPress: () => router.push("/(tabs)/saved") },
           { label: "Saved routines", onPress: () => router.push("/(tabs)/saved-routines") },
           { label: "Disclosure", onPress: () => router.push("/disclosure") },

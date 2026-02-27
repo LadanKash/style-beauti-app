@@ -79,7 +79,7 @@ export default function SavedScreen() {
           // { label: "Products", onPress: () => router.push("/products") },
           { label: "Inspiration Looks", onPress: () => router.push("/looks") },
           { label: "Collection", onPress: () => router.push("/lists") },
-          { label: "Find my routine", onPress: () => router.push("/routine") },
+          { label: "Find my routine", onPress: () => router.push("/(tabs)/routine") },
           // { label: "Saved", onPress: () => router.push("/(tabs)/saved") },
           { label: "Saved routines", onPress: () => router.push("/(tabs)/saved-routines") },
           { label: "Disclosure", onPress: () => router.push("/disclosure") },

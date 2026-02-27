@@ -1,19 +1,12 @@
 // app/onboarding.tsx
-import { Brand } from '@/constants/theme'; // adjust path
+import { Brand } from "@/constants/theme";
 import { theme } from "@/src/constants/theme";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useRouter } from "expo-router";
+import { useLocalSearchParams, useRouter } from "expo-router";
 import React, { useEffect, useMemo, useState } from "react";
 import { Image, Pressable, ScrollView, Text, View } from "react-native";
 import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
 
-<Pressable
-  style={{
-    backgroundColor: Brand.primary,
-  }}
->
-  
-</Pressable>
 type Step = {
   title: string;
   subtitle: string;
@@ -25,6 +18,9 @@ const KEY = "sb_onboarded";
 export default function Onboarding() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
+
+  const params = useLocalSearchParams<{ mode?: string }>();
+  const isInfo = params.mode === "info"; 
 
   const steps: Step[] = useMemo(
     () => [
@@ -63,27 +59,49 @@ export default function Onboarding() {
   const step = steps[index];
   const isLast = index === steps.length - 1;
 
+  //  onboarding after first time 
   useEffect(() => {
     (async () => {
       try {
         const done = (await AsyncStorage.getItem(KEY)) === "true";
-        if (done) router.replace("/(tabs)");
+        if (done && !isInfo) router.replace("/(tabs)");
       } catch {}
     })();
-  }, [router]);
+  }, [router, isInfo]);
 
-  const finish = async () => {
+  const goHome = () => router.replace("/(tabs)");
+
+  const handleFinish = async () => {
+    if (isInfo) {
+      // How it works: do NOT write KEY, just go home
+      goHome();
+      return;
+    }
+
+    // onboarding: mark done, then go routine
     try {
       await AsyncStorage.setItem(KEY, "true");
     } catch {}
-    router.replace("/routine");
+    router.replace("/(tabs)/routine");
   };
 
-  const skip = async () => {
+  const handleSkip = async () => {
+    if (isInfo) {
+      // How it works
+      goHome();
+      return;
+    }
+
     try {
       await AsyncStorage.setItem(KEY, "true");
     } catch {}
-    router.replace("/(tabs)");
+    router.replace("/(tabs)/routine");
+  };
+
+  const handleTopBack = () => {
+    //  back
+    if (router.canGoBack()) router.back();
+    else goHome();
   };
 
   return (
@@ -91,7 +109,7 @@ export default function Onboarding() {
       {/* Top bar */}
       <View
         style={{
-          paddingTop: Math.max(8, insets.top ? 0 : 8), // SafeArea already handles top; keep small padding
+          paddingTop: Math.max(8, insets.top ? 0 : 8),
           paddingHorizontal: 18,
           flexDirection: "row",
           justifyContent: "space-between",
@@ -99,15 +117,23 @@ export default function Onboarding() {
         }}
       >
         <Pressable
-          onPress={() => router.back()}
+          onPress={handleTopBack}
           hitSlop={12}
           style={{ paddingVertical: 8, paddingHorizontal: 8 }}
         >
-          <Text style={{ fontSize: 14, color: "#6B6B6B", opacity: 0.75 }}>← Back</Text>
+          <Text style={{ fontSize: 14, color: "#6B6B6B", opacity: 0.75 }}>
+            ← Back
+          </Text>
         </Pressable>
 
-        <Pressable onPress={skip} hitSlop={12} style={{ paddingVertical: 8, paddingHorizontal: 8 }}>
-          <Text style={{ fontSize: 14, color: "#6B6B6B", opacity: 0.75 }}>Skip</Text>
+        <Pressable
+          onPress={handleSkip}
+          hitSlop={12}
+          style={{ paddingVertical: 8, paddingHorizontal: 8 }}
+        >
+          <Text style={{ fontSize: 14, color: "#6B6B6B", opacity: 0.75 }}>
+            Skip
+          </Text>
         </Pressable>
       </View>
 
@@ -121,39 +147,46 @@ export default function Onboarding() {
             borderColor: "rgba(0,0,0,0.06)",
           }}
         >
-          {/* <Image
-            source={require("../assets/products/hero.png")}
+          {/* Hero */}
+          <View
             style={{
               width: "100%",
-              height: 180,
+              aspectRatio: 1.25,
               borderRadius: 22,
               marginBottom: 14,
+              overflow: "hidden",
             }}
-            resizeMode="cover"
-          /> */}
-          
-<View
-  style={{
-    width: "100%",
-    aspectRatio: 1.25,
-    borderRadius: 22,
-    marginBottom: 14,
-    overflow: "hidden",
-  }}
->
-  <Image
-    source={require("../assets/products/hero.png")}
-    style={{
-      width: "100%",
-      height: "120%",          // increase slightly
-      transform: [{ translateY: -2 }],  // move image UP
-    }}
-    resizeMode="cover"
-  />
-</View>
-          <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", marginBottom: 10 }}>
-            <View style={{ backgroundColor: "#E6A4B4", paddingVertical: 6, paddingHorizontal: 12, borderRadius: 999 }}>
-              <Text style={{ color: "white", fontWeight: "700", fontSize: 12 }}>Style & Beauty</Text>
+          >
+            <Image
+              source={require("../assets/products/hero.png")}
+              style={{
+                width: "100%",
+                height: "120%",
+                transform: [{ translateY: -2 }],
+              }}
+              resizeMode="cover"
+            />
+          </View>
+
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-between",
+              marginBottom: 10,
+            }}
+          >
+            <View
+              style={{
+                backgroundColor: "#E6A4B4",
+                paddingVertical: 6,
+                paddingHorizontal: 12,
+                borderRadius: 999,
+              }}
+            >
+              <Text style={{ color: "white", fontWeight: "700", fontSize: 12 }}>
+                Style & Beauty
+              </Text>
             </View>
 
             <Text style={{ fontSize: 12, opacity: 0.6 }}>
@@ -161,22 +194,43 @@ export default function Onboarding() {
             </Text>
           </View>
 
-          <Text style={{ fontSize: 20, fontWeight: "400", marginBottom: 8 }}>{step.title}</Text>
-          <Text style={{ fontSize: 16, opacity: 0.75, marginBottom: 16 }}>{step.subtitle}</Text>
+          <Text style={{ fontSize: 20, fontWeight: "400", marginBottom: 8 }}>
+            {step.title}
+          </Text>
+          <Text style={{ fontSize: 16, opacity: 0.75, marginBottom: 16 }}>
+            {step.subtitle}
+          </Text>
 
           <View style={{ gap: 12 }}>
             {step.bullets.map((b) => (
               <View key={b.title} style={{ flexDirection: "row", gap: 10 }}>
-                <View style={{ marginTop: 7, height: 10, width: 10, borderRadius: 999, backgroundColor: "#E6A4B4" }} />
+                <View
+                  style={{
+                    marginTop: 7,
+                    height: 10,
+                    width: 10,
+                    borderRadius: 999,
+                    backgroundColor: "#E6A4B4",
+                  }}
+                />
                 <View style={{ flex: 1 }}>
-                  <Text style={{ fontWeight: "500", marginBottom: 2 }}>{b.title}</Text>
+                  <Text style={{ fontWeight: "500", marginBottom: 2 }}>
+                    {b.title}
+                  </Text>
                   <Text style={{ opacity: 0.7 }}>{b.desc}</Text>
                 </View>
               </View>
             ))}
           </View>
 
-          <View style={{ marginTop: 18, flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
+          <View
+            style={{
+              marginTop: 18,
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+          >
             <View style={{ flexDirection: "row", gap: 8 }}>
               {steps.map((_, i) => (
                 <View
@@ -185,7 +239,8 @@ export default function Onboarding() {
                     height: 10,
                     width: 10,
                     borderRadius: 999,
-                    backgroundColor: i === index ? "#E6A4B4" : "rgba(0,0,0,0.12)",
+                    backgroundColor:
+                      i === index ? "#E6A4B4" : "rgba(0,0,0,0.12)",
                   }}
                 />
               ))}
@@ -209,16 +264,30 @@ export default function Onboarding() {
               {!isLast ? (
                 <Pressable
                   onPress={() => setIndex((v) => v + 1)}
-                  style={{ paddingVertical: 10, paddingHorizontal: 16, borderRadius: 999, backgroundColor: Brand.primary }}
+                  style={{
+                    paddingVertical: 10,
+                    paddingHorizontal: 16,
+                    borderRadius: 999,
+                    backgroundColor: Brand.primary,
+                  }}
                 >
-                  <Text style={{ color: "white", fontWeight: "800" }}>Continue</Text>
+                  <Text style={{ color: "white", fontWeight: "800" }}>
+                    Continue
+                  </Text>
                 </Pressable>
               ) : (
                 <Pressable
-                  onPress={finish}
-                  style={{ paddingVertical: 10, paddingHorizontal: 16, borderRadius: 999, backgroundColor: Brand.primary }}
+                  onPress={handleFinish}
+                  style={{
+                    paddingVertical: 10,
+                    paddingHorizontal: 16,
+                    borderRadius: 999,
+                    backgroundColor: Brand.primary,
+                  }}
                 >
-                  <Text style={{ color: "white", fontWeight: "800" }}>Find my routine</Text>
+                  <Text style={{ color: "white", fontWeight: "800" }}>
+                    {isInfo ? "Done" : "Find my routine"}
+                  </Text>
                 </Pressable>
               )}
             </View>
