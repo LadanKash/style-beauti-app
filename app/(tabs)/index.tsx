@@ -1,5 +1,5 @@
 // app/(tabs)/index.tsx
-import { Brand } from '@/constants/theme'; // adjust path
+import { Brand } from '@/constants/theme';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useFocusEffect, useRouter } from "expo-router";
 import React from "react";
@@ -80,16 +80,37 @@ export default function Home() {
           trust, and any budget in mind. ✨
         </Text>
 
-        <Image
+        {/* <Image
           source={HERO}
           style={{
             width: "100%",
-            height: 220,
+            height: 300,
             borderRadius: 22,
             marginBottom: 18,
+          
           }}
           resizeMode="cover"
-        />
+        /> */}
+
+<View
+  style={{
+    width: "100%",
+    aspectRatio: 1.1,
+    borderRadius: 22,
+    marginBottom: 18,
+    overflow: "hidden",
+  }}
+>
+  <Image
+    source={HERO}
+    style={{
+      width: "100%",
+      height: "110%",            
+      transform: [{ translateY: 12 }],  
+    }}
+    resizeMode="cover"
+  />
+</View>
 
         <View style={{ flexDirection: "row", gap: 12, alignItems: "center" }}>
           <Pressable

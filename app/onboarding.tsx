@@ -121,7 +121,7 @@ export default function Onboarding() {
             borderColor: "rgba(0,0,0,0.06)",
           }}
         >
-          <Image
+          {/* <Image
             source={require("../assets/products/hero.png")}
             style={{
               width: "100%",
@@ -130,8 +130,27 @@ export default function Onboarding() {
               marginBottom: 14,
             }}
             resizeMode="cover"
-          />
-
+          /> */}
+          
+<View
+  style={{
+    width: "100%",
+    aspectRatio: 1.25,
+    borderRadius: 22,
+    marginBottom: 14,
+    overflow: "hidden",
+  }}
+>
+  <Image
+    source={require("../assets/products/hero.png")}
+    style={{
+      width: "100%",
+      height: "120%",          // increase slightly
+      transform: [{ translateY: -2 }],  // move image UP
+    }}
+    resizeMode="cover"
+  />
+</View>
           <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between", marginBottom: 10 }}>
             <View style={{ backgroundColor: "#E6A4B4", paddingVertical: 6, paddingHorizontal: 12, borderRadius: 999 }}>
               <Text style={{ color: "white", fontWeight: "700", fontSize: 12 }}>Style & Beauty</Text>
