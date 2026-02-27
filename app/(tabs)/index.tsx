@@ -170,7 +170,7 @@ export default function Home() {
                 fontSize: 16,
               }}
             >
-              Find My Routine
+              Find Your Routine
             </Text>
           </Pressable>
         </View>
