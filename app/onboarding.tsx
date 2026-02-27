@@ -19,8 +19,13 @@ export default function Onboarding() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
 
-  const params = useLocalSearchParams<{ mode?: string }>();
-  const isInfo = params.mode === "info"; 
+  // const params = useLocalSearchParams<{ mode?: string }>();
+  // const isInfo = params.mode === "info"; 
+const params = useLocalSearchParams<{ mode?: string | string[] }>();
+
+const mode = Array.isArray(params.mode) ? params.mode[0] : params.mode;
+const isInfo = mode === "info";
+
 
   const steps: Step[] = useMemo(
     () => [
@@ -69,11 +74,15 @@ export default function Onboarding() {
     })();
   }, [router, isInfo]);
 
-  const goHome = () => router.replace("/(tabs)");
+  // const goHome = () => router.replace("/(tabs)");
+  const goHome = () => {
+  if (router.canGoBack()) router.back();
+  else router.replace("/(tabs)");
+};
 
   const handleFinish = async () => {
     if (isInfo) {
-      // How it works: do NOT write KEY, just go home
+
       goHome();
       return;
     }

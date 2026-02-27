@@ -10,7 +10,7 @@ type Props = {
   title?: string;
   children: React.ReactNode;
   backgroundColor?: string;
-  showBack?: boolean; // optional override
+  showBack?: boolean; 
 };
 
 export default function Page({
@@ -22,8 +22,6 @@ export default function Page({
   const router = useRouter();
   const [menuOpen, setMenuOpen] = React.useState(false);
 
-  // default behavior like Explore:
-  // show back automatically if router can go back
   const autoBack = router.canGoBack();
   const finalShowBack = typeof showBack === "boolean" ? showBack : autoBack;
 
@@ -41,12 +39,11 @@ export default function Page({
         onClose={() => setMenuOpen(false)}
         items={[
           { label: "Home", onPress: () => router.push("/(tabs)") },
+          {label: "How it works", onPress: () => router.push({ pathname: "/onboarding", params: { mode: "info" } })},
           { label: "Explore", onPress: () => router.push("/(tabs)/explore") },
-          // { label: "Products", onPress: () => router.push("/products") },
           { label: "Inspiration Looks", onPress: () => router.push("/(tabs)/looks") },
           { label: "Collection", onPress: () => router.push("/(tabs)/lists") },
           { label: "Find my routine", onPress: () => router.push("/(tabs)/routine") },
-          // { label: "Saved", onPress: () => router.push("/(tabs)/saved") },
           { label: "Saved routines", onPress: () => router.push("/(tabs)/saved-routines") },
           { label: "Disclosure", onPress: () => router.push("/disclosure") },
           { label: "Privacy", onPress: () => router.push("/privacy") },

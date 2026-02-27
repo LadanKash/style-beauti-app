@@ -211,6 +211,7 @@ export default function RoutineIndex() {
         onClose={() => setMenuOpen(false)}
         items={[
           { label: "Home", onPress: () => router.push("/(tabs)") },
+         {label: "How it works", onPress: () => router.push({ pathname: "/onboarding", params: { mode: "info" } })},
           { label: "Explore", onPress: () => router.push("/(tabs)/explore") },
           { label: "Inspiration Looks", onPress: () => router.push("/looks") },
           { label: "Collection", onPress: () => router.push("/lists") },

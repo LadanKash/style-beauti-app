@@ -20,6 +20,7 @@ export default function LooksTabScreen() {
   const menuItems = React.useMemo(
     () => [
       { label: "Home", onPress: () => router.push("/") },
+      {label: "How it works", onPress: () => router.push({ pathname: "/onboarding", params: { mode: "info" } })},
       { label: "Explore", onPress: () => router.push("/explore") },
       // { label: "Products", onPress: () => router.push("/products") },
       { label: "Inspiration Looks", onPress: () => router.push("/looks") },

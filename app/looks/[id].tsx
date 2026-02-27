@@ -26,7 +26,7 @@ export default function LookDetailScreen() {
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState<string | null>(null);
 
-  // ✅ Hooks must be ABOVE any early return
+  //  Hooks must be ABOVE any early return
   const look = React.useMemo(() => looks.find((l) => l.id === id), [looks, id]);
 
   const productById = React.useMemo(() => {
@@ -75,7 +75,7 @@ export default function LookDetailScreen() {
     };
   }, []);
 
-  // ✅ Now early returns are safe
+  // Now early returns are safe
   if (loading) {
     return (
       <View

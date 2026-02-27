@@ -1,52 +1,81 @@
 // app/(tabs)/index.tsx
+
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useFocusEffect, useRouter } from "expo-router";
 import React from "react";
 import { Image, Pressable, Text, View } from "react-native";
 import Page from "../components/Page";
 
-const KEY = "sb_onboarded";
+const ONBOARD_KEY = "sb_onboarded";
+const HOW_KEY = "sb_howitworks_seen";
+
 const HERO = require("../../assets/products/hero.png");
 
 export default function Home() {
   const router = useRouter();
+
   const [onboarded, setOnboarded] = React.useState<boolean | null>(null);
+  const [howSeen, setHowSeen] = React.useState(false);
 
-  const loadOnboarding = React.useCallback(() => {
-    let alive = true;
+  // Load flags when screen focuses
+  useFocusEffect(
+    React.useCallback(() => {
+      let alive = true;
 
-    (async () => {
-      try {
-        const done = (await AsyncStorage.getItem(KEY)) === "true";
-        if (alive) setOnboarded(done);
-      } catch {
-        if (alive) setOnboarded(false);
-      }
-    })();
+      (async () => {
+        try {
+          const done = (await AsyncStorage.getItem(ONBOARD_KEY)) === "true";
+          const seen = (await AsyncStorage.getItem(HOW_KEY)) === "true";
 
-    return () => {
-      alive = false;
-    };
-  }, []);
+          if (alive) {
+            setOnboarded(done);
+            setHowSeen(seen);
+          }
+        } catch {
+          if (alive) {
+            setOnboarded(false);
+            setHowSeen(false);
+          }
+        }
+      })();
 
-  useFocusEffect(loadOnboarding);
-
-  const goRoutine = () => {
-    router.push("/(tabs)/routine");
-  };
-
-  // Always open "How it works" (info mode)
-  const goHowItWorks = () => {
-    router.push("/onboarding?mode=info");
-  };
+      return () => {
+        alive = false;
+      };
+    }, [])
+  );
 
   const goSuggest = () => {
     router.push("/suggest");
   };
 
+  const goRoutine = () => {
+    if (onboarded === null) return;
+
+    if (!onboarded) {
+      router.replace("/onboarding");
+      return;
+    }
+
+    router.push("/(tabs)/routine");
+  };
+
+  const goHowItWorks = async () => {
+    try {
+      await AsyncStorage.setItem(HOW_KEY, "true");
+      setHowSeen(true);
+    } catch {}
+
+    router.push({
+      pathname: "/onboarding",
+      params: { mode: "info" },
+    });
+  };
+
   return (
     <Page backgroundColor="#FAF7F4" title="Style & Beauty">
       <View style={{ padding: 24, paddingTop: 18 }}>
+        
         <Text
           style={{
             fontSize: 34,
@@ -92,7 +121,13 @@ export default function Home() {
           />
         </View>
 
-        <View style={{ flexDirection: "row", gap: 12, alignItems: "center" }}>
+        <View
+          style={{
+            flexDirection: "row",
+            gap: 12,
+            alignItems: "center",
+          }}
+        >
           <Pressable
             onPress={goSuggest}
             style={{
@@ -105,7 +140,13 @@ export default function Home() {
               opacity: onboarded === null ? 0.6 : 1,
             }}
           >
-            <Text style={{ color: "#2A2A2A", fontWeight: "700", fontSize: 16 }}>
+            <Text
+              style={{
+                color: "#2A2A2A",
+                fontWeight: "700",
+                fontSize: 16,
+              }}
+            >
               AI Suggest
             </Text>
           </Pressable>
@@ -122,34 +163,43 @@ export default function Home() {
               opacity: onboarded === null ? 0.6 : 1,
             }}
           >
-            <Text style={{ color: "white", fontWeight: "800", fontSize: 16 }}>
+            <Text
+              style={{
+                color: "white",
+                fontWeight: "800",
+                fontSize: 16,
+              }}
+            >
               Find My Routine
             </Text>
           </Pressable>
         </View>
 
-        {/* Always visible */}
-        <Pressable
-          onPress={goHowItWorks}
-          style={{
-            marginTop: 14,
-            alignSelf: "center",
-            paddingVertical: 6,
-            paddingHorizontal: 10,
-          }}
-        >
-          <Text
+        {/* Show only one time */}
+        {!howSeen && (
+          <Pressable
+            onPress={goHowItWorks}
             style={{
-              fontSize: 14,
-              color: "#6B6B6B",
-              opacity: 0.8,
-              textDecorationLine: "underline",
-              fontWeight: "500",
+              marginTop: 14,
+              alignSelf: "center",
+              paddingVertical: 6,
+              paddingHorizontal: 10,
             }}
           >
-            How it works
-          </Text>
-        </Pressable>
+            <Text
+              style={{
+                fontSize: 14,
+                color: "#6B6B6B",
+                opacity: 0.8,
+                textDecorationLine: "underline",
+                fontWeight: "500",
+              }}
+            >
+              How it works
+            </Text>
+          </Pressable>
+        )}
+
       </View>
     </Page>
   );

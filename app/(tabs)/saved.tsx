@@ -61,32 +61,23 @@ export default function SavedScreen() {
 
   return (
     <View style={{ flex: 1, backgroundColor: "#FAF7F4" }}>
-      <TopNav
-        title="Saved"
-        onMenuPress={() => setMenuOpen(true)}
-        // It’s a tab screen → typically no back button:
-        // If your TopNav shows back by default, make sure showBack={false} exists in TopNav props.
-        // If not supported, just leave it out.
-        showBack={false as any}
-      />
+      <TopNav title="Saved" onMenuPress={() => setMenuOpen(true)} showBack={false} />
 
       <MenuSheet
         visible={menuOpen}
         onClose={() => setMenuOpen(false)}
         items={[
           { label: "Home", onPress: () => router.push("/(tabs)") },
+          { label: "How it works", onPress: () => router.push({ pathname: "/onboarding", params: { mode: "info" } }) },
           { label: "Explore", onPress: () => router.push("/(tabs)/explore") },
-          // { label: "Products", onPress: () => router.push("/products") },
-          { label: "Inspiration Looks", onPress: () => router.push("/looks") },
-          { label: "Collection", onPress: () => router.push("/lists") },
+          { label: "Inspiration Looks", onPress: () => router.push("/(tabs)/looks") },
+          { label: "Collection", onPress: () => router.push("/(tabs)/lists") },
           { label: "Find my routine", onPress: () => router.push("/(tabs)/routine") },
-          // { label: "Saved", onPress: () => router.push("/(tabs)/saved") },
           { label: "Saved routines", onPress: () => router.push("/(tabs)/saved-routines") },
           { label: "Disclosure", onPress: () => router.push("/disclosure") },
           { label: "Privacy", onPress: () => router.push("/privacy") },
         ]}
       />
-
       <FlatList
         style={{ flex: 1 }}
         data={items}
@@ -156,7 +147,7 @@ export default function SavedScreen() {
         }}
       />
 
-      {/* Fixed footer */}
+//       {/* Fixed footer */}
       <View
         pointerEvents="none"
         style={{
@@ -215,4 +206,4 @@ export default function SavedScreen() {
       </Modal>
     </View>
   );
-}
+ } 
